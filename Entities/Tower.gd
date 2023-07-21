@@ -43,11 +43,11 @@ func _on_timer_timeout():
 		return
 	
 	if attacking_type == EAttackingType.lowest_health:
-		enemies_inside_copy = enemies_inside.duplicate()
+		var enemies_inside_copy = enemies_inside.duplicate()
 		enemies_inside_copy.sort_custom(func(x, y): return x.health <= y.health)
 		on_enemy_hit(enemies_inside_copy[0])
 	elif attacking_type == EAttackingType.biggest_health:
-		enemies_inside_copy = enemies_inside.duplicate()
+		var enemies_inside_copy = enemies_inside.duplicate()
 		enemies_inside_copy.sort_custom(func(x, y): return x.health >= y.health)
 		on_enemy_hit(enemies_inside_copy[0])
 	elif attacking_type == EAttackingType.random:
