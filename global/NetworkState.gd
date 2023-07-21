@@ -5,7 +5,7 @@ const MAX_PEERS = 2
 
 var peer = null
 
-var player_name = "My name"
+var player_name = ""
 
 var players = {}
 var players_ready = []
@@ -21,6 +21,12 @@ func get_player_list():
 
 func get_player_name():
 	return player_name
+
+
+# Callback from SceneTree.
+func _player_connected(id):
+	# Registration of a client beings here, tell the connected player that we are here.
+	register_player.rpc_id(id, player_name)
 
 # Callback from SceneTree.
 func _player_disconnected(id):
