@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bb3gp42yevgk2"]
+
+[ext_resource type="Script" path="res://Enemies/Modifiers/Tiny/Tiny.gd" id="1_0tbbb"]
+
+[node name="Tiny" type="Node"]
+script = ExtResource("1_0tbbb")

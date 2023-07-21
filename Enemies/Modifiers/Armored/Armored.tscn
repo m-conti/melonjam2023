@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://b07b5r7tyyf34"]
+
+[ext_resource type="Script" path="res://Enemies/Modifiers/Armored/Armored.gd" id="1_7c3eq"]
+
+[node name="Armored" type="Node"]
+script = ExtResource("1_7c3eq")

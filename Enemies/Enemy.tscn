@@ -1,8 +1,13 @@
-[gd_scene load_steps=6 format=3 uid="uid://dfd3l7dwbwraw"]
+[gd_scene load_steps=11 format=3 uid="uid://dfd3l7dwbwraw"]
 
 [ext_resource type="Script" path="res://Enemies/Enemy.gd" id="1_8h1ux"]
 [ext_resource type="Shader" path="res://Enemies/Shaders/Enemy.gdshader" id="2_36mrs"]
 [ext_resource type="Texture2D" uid="uid://dhrndp70oikx6" path="res://Enemies/enemy.png" id="3_3sowy"]
+[ext_resource type="PackedScene" uid="uid://b07b5r7tyyf34" path="res://Enemies/Modifiers/Armored/Armored.tscn" id="4_crl12"]
+[ext_resource type="PackedScene" uid="uid://nonjegiqnyj2" path="res://Enemies/Modifiers/Fast/Fast.tscn" id="5_xpgqo"]
+[ext_resource type="PackedScene" uid="uid://bb3gp42yevgk2" path="res://Enemies/Modifiers/Tiny/Tiny.tscn" id="6_sqywk"]
+[ext_resource type="PackedScene" uid="uid://cfww4ppqmr360" path="res://Enemies/Modifiers/Big/Big.tscn" id="7_rjeus"]
+[ext_resource type="PackedScene" uid="uid://ckf8pvyab1n2n" path="res://Enemies/Modifiers/Slow/Slow.tscn" id="8_3n4fa"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_1uhqs"]
 shader = ExtResource("2_36mrs")
@@ -19,3 +24,15 @@ texture = ExtResource("3_3sowy")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_kwjgs")
+
+[node name="Modifiers" type="Node" parent="."]
+
+[node name="Armored" parent="Modifiers" instance=ExtResource("4_crl12")]
+
+[node name="Fast" parent="Modifiers" instance=ExtResource("5_xpgqo")]
+
+[node name="Tiny" parent="Modifiers" instance=ExtResource("6_sqywk")]
+
+[node name="Big" parent="Modifiers" instance=ExtResource("7_rjeus")]
+
+[node name="Slow" parent="Modifiers" instance=ExtResource("8_3n4fa")]
