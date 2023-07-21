@@ -20,8 +20,8 @@ func _ready():
 func _process(delta):
 	pass
 
-func isGameStated():
+func is_game_strated():
 	return state == EGameState.STARTED
 
-func disconnectGame():
+func disconnect_game():
 	self.state = EGameState.DISCONNECTED
