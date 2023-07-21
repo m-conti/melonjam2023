@@ -1,6 +1,27 @@
-[gd_scene load_steps=2 format=3 uid="uid://dr5tn4o0pbc0o"]
+[gd_scene load_steps=10 format=3 uid="uid://dr5tn4o0pbc0o"]
 
 [ext_resource type="Script" path="res://HUD/Buttons/Shop.gd" id="1_34xbi"]
+[ext_resource type="ButtonGroup" uid="uid://pevhaqpsd8fq" path="res://HUD/Buttons/SubShop.tres" id="2_2hxj8"]
+[ext_resource type="Script" path="res://HUD/Buttons/SubShop.gd" id="2_85x6i"]
+
+[sub_resource type="Gradient" id="Gradient_0lmct"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_dhemu"]
+gradient = SubResource("Gradient_0lmct")
+
+[sub_resource type="Gradient" id="Gradient_jnp7r"]
+offsets = PackedFloat32Array(0, 0.996503)
+colors = PackedColorArray(1, 0, 0, 1, 1, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_u4do2"]
+gradient = SubResource("Gradient_jnp7r")
+
+[sub_resource type="Gradient" id="Gradient_kfhv5"]
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_2fl7i"]
+gradient = SubResource("Gradient_kfhv5")
 
 [node name="HUD" type="Control"]
 layout_mode = 3
@@ -24,15 +45,71 @@ offset_top = -107.0
 grow_horizontal = 0
 grow_vertical = 0
 toggle_mode = true
+text = "Shop"
 script = ExtResource("1_34xbi")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Shop"]
+[node name="BoxContainer" type="VBoxContainer" parent="Shop"]
+visible = false
 layout_mode = 1
 anchors_preset = -1
+anchor_right = 1.0
+offset_bottom = -10.0
 grow_vertical = 0
+theme_override_constants/separation = 10
 
-[node name="Button" type="Button" parent="Shop/VBoxContainer"]
+[node name="Button" type="Button" parent="Shop/BoxContainer"]
+custom_minimum_size = Vector2(2.08165e-12, 100)
 layout_mode = 2
+toggle_mode = true
+button_group = ExtResource("2_2hxj8")
 text = "Towers"
+script = ExtResource("2_85x6i")
+
+[node name="BoxContainer" type="HBoxContainer" parent="Shop/BoxContainer/Button"]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_bottom = 1.0
+offset_right = -10.0
+grow_horizontal = 0
+
+[node name="Button" type="Button" parent="Shop/BoxContainer/Button/BoxContainer"]
+custom_minimum_size = Vector2(100, 2.08165e-12)
+layout_mode = 2
+size_flags_vertical = 3
+text = "TEST"
+
+[node name="Button2" type="Button" parent="Shop/BoxContainer"]
+custom_minimum_size = Vector2(2.08165e-12, 100)
+layout_mode = 2
+toggle_mode = true
+button_group = ExtResource("2_2hxj8")
+text = "Boost
+"
+script = ExtResource("2_85x6i")
+
+[node name="BoxContainer" type="HBoxContainer" parent="Shop/BoxContainer/Button2"]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_bottom = 1.0
+offset_right = -10.0
+grow_horizontal = 0
+
+[node name="Button" type="Button" parent="Shop/BoxContainer/Button2/BoxContainer"]
+custom_minimum_size = Vector2(100, 2.08165e-12)
+layout_mode = 2
+size_flags_vertical = 3
+text = "TEST"
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="."]
+layout_mode = 0
+offset_right = 494.0
+offset_bottom = 146.0
+texture_under = SubResource("GradientTexture1D_dhemu")
+texture_over = SubResource("GradientTexture1D_u4do2")
+texture_progress = SubResource("GradientTexture1D_2fl7i")
 
 [connection signal="toggled" from="Shop" to="Shop" method="_on_toggled"]
+[connection signal="toggled" from="Shop/BoxContainer/Button" to="Shop/BoxContainer/Button" method="_on_toggled"]
+[connection signal="toggled" from="Shop/BoxContainer/Button2" to="Shop/BoxContainer/Button2" method="_on_toggled"]
