@@ -1,6 +1,6 @@
 extends Node
 
-const DEFAULT_PORT = 8080
+const DEFAULT_PORT = 10567
 const MAX_PEERS = 4
 
 var peer = null
