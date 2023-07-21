@@ -3,6 +3,10 @@ extends Control
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	NetworkState.connection_failed.connect(self._on_connection_failed)
+	NetworkState.connection_succeeded.connect(self._on_connection_success)
+	NetworkState.player_list_changed.connect(self.refresh_lobby)
+	NetworkState.error.connect(self._on_network_error)
 	if OS.has_environment("USERNAME"):
 		$Connect/Name.text = OS.get_environment("USERNAME")
 	else:
@@ -51,7 +55,7 @@ func _on_connection_failed():
 	$Connect/Join.disabled = false
 	$Connect/ErrorLabel.set_text("Connection failed.")
 
-func _on_game_error(errtxt):
+func _on_network_error(errtxt):
 	$ErrorDialog.dialog_text = errtxt
 	$ErrorDialog.popup_centered()
 	$Connect/Host.disabled = false
