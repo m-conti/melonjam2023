@@ -6,6 +6,7 @@ var enemies_inside: Array = []
 @onready var timer: Timer = $Timer
 @export var attacking_type: EAttackingType
 
+
 enum EAttackingType
 {
 	lowest_health,
@@ -16,21 +17,22 @@ enum EAttackingType
 	all
 }
 
+
 func _ready():
 	timer.wait_time = cooldown
 
 
 func _on_area_2d_area_entered(area):
-	if enemy is not Enemy:
-		return
 	var enemy = area.get_parent()
+	if not enemy is Enemy:
+		return
 	
 	enemies_inside.append(enemy)
 
 
 func _on_area_2d_area_exited(area):
 	var enemy = area.get_parent()
-	if enemy is not Enemy:
+	if not enemy is Enemy:
 		return
 	
 	enemies_inside.erase(enemy)
@@ -41,15 +43,19 @@ func _on_timer_timeout():
 		return
 	
 	if attacking_type == EAttackingType.lowest_health:
-		on_enemy_hit(enemies_inside.sort_custom(func(x, y): return x.health <= y.health)[0])
+		enemies_inside_copy = enemies_inside.duplicate()
+		enemies_inside_copy.sort_custom(func(x, y): return x.health <= y.health)
+		on_enemy_hit(enemies_inside_copy[0])
 	elif attacking_type == EAttackingType.biggest_health:
-		on_enemy_hit(enemies_inside.sort_custom(func(x, y): return x.health <= y.health)[-1])
+		enemies_inside_copy = enemies_inside.duplicate()
+		enemies_inside_copy.sort_custom(func(x, y): return x.health >= y.health)
+		on_enemy_hit(enemies_inside_copy[0])
 	elif attacking_type == EAttackingType.random:
 		on_enemy_hit(enemies_inside.pick_random())
 	elif attacking_type == EAttackingType.first_in_line:
-		pass
+		on_enemy_hit(enemies_inside[0])
 	elif attacking_type == EAttackingType.last_in_line:
-		pass
+		on_enemy_hit(enemies_inside[enemies_inside.size() - 1])
 	elif attacking_type == EAttackingType.all:
 		for enemy in enemies_inside:
 			on_enemy_hit(enemy)
