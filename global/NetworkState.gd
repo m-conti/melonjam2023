@@ -13,7 +13,7 @@ var players_ready = []
 signal player_list_changed()
 signal connection_failed()
 signal connection_succeeded()
-signal game_error(what)
+signal error(what)
 
 
 func get_player_list():
@@ -30,9 +30,9 @@ func _player_connected(id):
 
 # Callback from SceneTree.
 func _player_disconnected(id):
-	if GameState.isGameStated(): # Game is in progress.
+	if GameState.is_game_strated(): # Game is in progress.
 		if multiplayer.is_server():
-			game_error.emit("Player " + players[id] + " disconnected")
+			error.emit("Player " + players[id] + " disconnected")
 	else:
 		unregister_player(id)
 
@@ -55,8 +55,8 @@ func unregister_player(id):
 
 # Callback from SceneTree, only for clients (not server).
 func _server_disconnected():
-	game_error.emit("Server disconnected")
-	GameState.disconnectGame()
+	error.emit("Server disconnected")
+	GameState.disconnect_game()
 
 # Callback from SceneTree, only for clients (not server).
 func _connected_fail():
