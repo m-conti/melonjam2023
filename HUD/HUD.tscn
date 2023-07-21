@@ -1,8 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://dr5tn4o0pbc0o"]
+[gd_scene load_steps=11 format=3 uid="uid://dr5tn4o0pbc0o"]
 
-[ext_resource type="Script" path="res://HUD/Buttons/Shop.gd" id="1_34xbi"]
+[ext_resource type="Script" path="res://HUD/Buttons/ShopButton.gd" id="1_4tfwb"]
+[ext_resource type="Script" path="res://HUD/Buttons/MenuBar.gd" id="1_vcj4m"]
 [ext_resource type="ButtonGroup" uid="uid://pevhaqpsd8fq" path="res://HUD/Buttons/SubShop.tres" id="2_2hxj8"]
-[ext_resource type="Script" path="res://HUD/Buttons/SubShop.gd" id="2_85x6i"]
+[ext_resource type="PackedScene" uid="uid://cnkovvaqbfwqo" path="res://Towers/FireTower.tscn" id="4_n7tev"]
 
 [sub_resource type="Gradient" id="Gradient_0lmct"]
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
@@ -23,18 +24,9 @@ colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1)
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_2fl7i"]
 gradient = SubResource("Gradient_kfhv5")
 
-[node name="HUD" type="Control"]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
+[node name="HUD" type="CanvasLayer"]
 
 [node name="Shop" type="Button" parent="."]
-layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
 anchor_top = 1.0
@@ -46,7 +38,7 @@ grow_horizontal = 0
 grow_vertical = 0
 toggle_mode = true
 text = "Shop"
-script = ExtResource("1_34xbi")
+script = ExtResource("1_vcj4m")
 
 [node name="BoxContainer" type="VBoxContainer" parent="Shop"]
 visible = false
@@ -63,7 +55,7 @@ layout_mode = 2
 toggle_mode = true
 button_group = ExtResource("2_2hxj8")
 text = "Towers"
-script = ExtResource("2_85x6i")
+script = ExtResource("1_vcj4m")
 
 [node name="BoxContainer" type="HBoxContainer" parent="Shop/BoxContainer/Button"]
 visible = false
@@ -77,7 +69,9 @@ grow_horizontal = 0
 custom_minimum_size = Vector2(100, 2.08165e-12)
 layout_mode = 2
 size_flags_vertical = 3
-text = "TEST"
+text = "Fire Tower"
+script = ExtResource("1_4tfwb")
+tower_instance = ExtResource("4_n7tev")
 
 [node name="Button2" type="Button" parent="Shop/BoxContainer"]
 custom_minimum_size = Vector2(2.08165e-12, 100)
@@ -86,7 +80,7 @@ toggle_mode = true
 button_group = ExtResource("2_2hxj8")
 text = "Boost
 "
-script = ExtResource("2_85x6i")
+script = ExtResource("1_vcj4m")
 
 [node name="BoxContainer" type="HBoxContainer" parent="Shop/BoxContainer/Button2"]
 visible = false
@@ -101,9 +95,9 @@ custom_minimum_size = Vector2(100, 2.08165e-12)
 layout_mode = 2
 size_flags_vertical = 3
 text = "TEST"
+script = ExtResource("1_4tfwb")
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="."]
-layout_mode = 0
 offset_right = 494.0
 offset_bottom = 146.0
 texture_under = SubResource("GradientTexture1D_dhemu")
@@ -112,4 +106,5 @@ texture_progress = SubResource("GradientTexture1D_2fl7i")
 
 [connection signal="toggled" from="Shop" to="Shop" method="_on_toggled"]
 [connection signal="toggled" from="Shop/BoxContainer/Button" to="Shop/BoxContainer/Button" method="_on_toggled"]
+[connection signal="pressed" from="Shop/BoxContainer/Button/BoxContainer/Button" to="Shop/BoxContainer/Button/BoxContainer/Button" method="_on_pressed"]
 [connection signal="toggled" from="Shop/BoxContainer/Button2" to="Shop/BoxContainer/Button2" method="_on_toggled"]

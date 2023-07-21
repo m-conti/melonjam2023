@@ -1,4 +1,4 @@
-extends Node
+extends Button
 class_name MyMenuBar
 
 
@@ -14,3 +14,7 @@ func _process(delta):
 
 func _on_toggled(button_pressed):
 	get_node("BoxContainer").visible = button_pressed
+
+
+func _on_button_pressed():
+	pass # Replace with function body.
