@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://cnkovvaqbfwqo"]
 
-[ext_resource type="PackedScene" uid="uid://cwrl1q31ff0xu" path="res://Entities/tower.tscn" id="1_46fn7"]
+[ext_resource type="PackedScene" uid="uid://cwrl1q31ff0xu" path="res://Entities/Tower.tscn" id="1_46fn7"]
 
 [node name="tower" instance=ExtResource("1_46fn7")]
 cooldown = null
