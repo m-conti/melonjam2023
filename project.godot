@@ -13,3 +13,8 @@ config_version=5
 config/name="melonjam2023"
 config/features=PackedStringArray("4.1", "Forward Plus")
 config/icon="res://icon.svg"
+
+[autoload]
+
+GameState="*res://global/GameState.gd"
+NetworkState="*res://global/NetworkState.gd"
