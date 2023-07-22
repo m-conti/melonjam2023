@@ -17,7 +17,7 @@ script = ExtResource("1_vd1cq")
 replication_config = SubResource("SceneReplicationConfig_dbbrf")
 
 [node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="."]
-_spawnable_scenes = PackedStringArray("res://Entities/Tower.tscn", "res://Entities/Spawner.tscn", "res://Enemies/Enemy.tscn")
+_spawnable_scenes = PackedStringArray("res://Entities/Tower.tscn", "res://Entities/Spawner.tscn", "res://Enemies/Enemies/Zombie.tscn")
 spawn_path = NodePath("../SyncContainer")
 
 [node name="SyncContainer" type="Node2D" parent="."]

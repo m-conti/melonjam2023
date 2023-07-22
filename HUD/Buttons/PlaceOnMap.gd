@@ -42,7 +42,9 @@ func _input(event):
 			ghost.place_on_map(pos)
 			
 			ghost.modulate = Color.WHITE
-			ghost.reparent(map)
+			if ghost.get_parent():
+				ghost.get_parent().remove_child(ghost)
+			map.get_node("SyncContainer").add_child(ghost, true)
 			ghost = null
 		
 		elif event.button_index == MOUSE_BUTTON_RIGHT:

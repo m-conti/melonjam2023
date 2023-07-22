@@ -16,6 +16,7 @@ signal damage(amount)
 
 func _enter_tree():
 	set_multiplayer_authority(get_parent().get_multiplayer_authority())
+	if not is_multiplayer_authority(): print("SPAWN ON ENEMY SCREEN")
 
 
 func init(player_number: int, current_case: Vector2i):
