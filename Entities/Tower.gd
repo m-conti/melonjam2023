@@ -22,10 +22,6 @@ enum EAttackingType
 }
 
 
-func _ready():
-	timer.wait_time = attack_cooldown
-
-
 func _on_area_2d_area_entered(area):
 	var enemy = area.get_parent()
 	if not enemy is Enemy:
@@ -87,3 +83,4 @@ func place_tower(pos: Vector2i):
 	
 	map.grid[pos.x][pos.y] = self
 	has_been_placed.emit(pos)
+	timer.start(attack_cooldown)
