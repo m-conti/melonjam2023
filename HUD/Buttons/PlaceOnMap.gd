@@ -34,7 +34,16 @@ func _input(event):
 	
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_LEFT:
-			place_on_map(map.tilemap.local_to_map(event.position))
+			var pos: Vector2i = map.tilemap.local_to_map(event.position) 
+			
+			if not can_be_placed(pos):
+				return
+			
+			map.add_at_pos(ghost, pos)
+			ghost.place_on_map(pos)
+			
+			ghost.modulate = Color.WHITE
+			ghost.reparent(map)
 			ghost = null
 		
 		elif event.button_index == MOUSE_BUTTON_RIGHT:
@@ -46,7 +55,3 @@ func _input(event):
 
 func can_be_placed(pos: Vector2i) -> bool:
 	return false
-
-
-func place_on_map(pos: Vector2i):
-	pass

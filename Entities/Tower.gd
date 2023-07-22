@@ -78,10 +78,6 @@ func can_be_placed(pos: Vector2i) -> bool:
 	return false
 
 
-func place_tower(pos: Vector2i):
-	if not can_be_placed(pos):
-		return
-	
-	map.grid[pos.x][pos.y] = self
+func place_on_map(pos: Vector2i):
 	has_been_placed.emit(pos)
 	timer.start(attack_cooldown)

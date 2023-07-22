@@ -13,7 +13,7 @@ func spawn():
 	new_enemy.position = position
 
 
-func _ready():
+func place_on_map(pos: Vector2i):
 	var timer: Timer = get_node("Timer")
 	timer.wait_time = cooldown
 	timer.timeout.connect(spawn)

@@ -27,6 +27,7 @@ func _ready():
 	else: hide()
 	
 	var spawner: Spawner = load("res://Entities/Spawner.tscn").instantiate()
+	spawner.place_on_map(Vector2i(3, 3))
 	add_at_pos(spawner, Vector2i(3, 3))
 
 func _init():
