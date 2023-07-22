@@ -6,6 +6,7 @@ class_name Map
 @export var height: int = 20
 @onready var tilemap: TileMap = $TileMap
 
+var player_id: int
 
 var grid: Array = []
 
@@ -15,6 +16,15 @@ func _init_grid():
 		for y in height:
 			grid[x].append(null)
 
+func _ready():
+	set_multiplayer_authority(self.name.to_int())
+	print("""Scene:
+	player_id: %s
+	self_id: %d
+	""" % [ self.name, multiplayer.get_unique_id() ])
+	print(is_multiplayer_authority())
+	if is_multiplayer_authority(): show()
+	else: hide()
 
 func _init():
 	_init_grid()
@@ -27,6 +37,7 @@ func _ready():
 
 func set_player(player_id):
 	set_multiplayer_authority(player_id)
+	self.player_id = player_id
 
 
 func is_in_grid(pos: Vector2i) -> bool:

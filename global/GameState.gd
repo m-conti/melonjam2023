@@ -10,6 +10,9 @@ enum EGameStatus {
 
 var status: EGameStatus = EGameStatus.WAITING
 
+var game:
+	get: return get_tree().root.get_node("game")
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
@@ -25,7 +28,8 @@ func is_game_strated():
 @rpc("authority", "call_local")
 func start_game():
 	self.status = EGameStatus.STARTED
-	get_tree().change_scene_to_file("res://game.tscn")
+	game.remove_pages()
+	game.start_game()
 
 func disconnect_game():
 	self.status = EGameStatus.DISCONNECTED
