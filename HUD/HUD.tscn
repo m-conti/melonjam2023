@@ -1,10 +1,15 @@
-[gd_scene load_steps=12 format=3 uid="uid://dr5tn4o0pbc0o"]
+[gd_scene load_steps=17 format=3 uid="uid://dr5tn4o0pbc0o"]
 
-[ext_resource type="Script" path="res://HUD/HUD.gd" id="1_3yk4g"]
 [ext_resource type="Script" path="res://HUD/Buttons/MenuBar.gd" id="1_vcj4m"]
-[ext_resource type="ButtonGroup" path="res://HUD/Buttons/SubShop.tres" id="2_2hxj8"]
+[ext_resource type="ButtonGroup" uid="uid://pevhaqpsd8fq" path="res://HUD/Buttons/SubShop.tres" id="2_2hxj8"]
 [ext_resource type="Script" path="res://HUD/Buttons/TowerButton.gd" id="3_yfwwx"]
+[ext_resource type="PackedScene" uid="uid://cnkovvaqbfwqo" path="res://Towers/FireTower.tscn" id="4_n7tev"]
+[ext_resource type="PackedScene" uid="uid://cuhygbww0otik" path="res://Towers/IceTower.tscn" id="5_tdlmk"]
+[ext_resource type="PackedScene" uid="uid://cgiry6ketavbj" path="res://Towers/BombTower.tscn" id="6_158jl"]
+[ext_resource type="PackedScene" uid="uid://7pnedj7wsgrh" path="res://Towers/ArcherTower.tscn" id="7_pdln5"]
 [ext_resource type="Script" path="res://HUD/Buttons/SpawnerButton.gd" id="8_ok5js"]
+[ext_resource type="PackedScene" uid="uid://pwltt60ecspc" path="res://Entities/Spawner.tscn" id="9_f0wej"]
+[ext_resource type="Script" path="res://HUD/Buttons/ArmoredButton.gd" id="10_7rkon"]
 
 [sub_resource type="Gradient" id="Gradient_0lmct"]
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
@@ -26,7 +31,6 @@ colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1)
 gradient = SubResource("Gradient_kfhv5")
 
 [node name="HUD" type="CanvasLayer"]
-script = ExtResource("1_3yk4g")
 
 [node name="Shop" type="Button" parent="."]
 anchors_preset = 3
@@ -73,6 +77,7 @@ layout_mode = 2
 size_flags_vertical = 3
 text = "Fire Tower"
 script = ExtResource("3_yfwwx")
+instance = ExtResource("4_n7tev")
 
 [node name="Ice Tower" type="Button" parent="Shop/BoxContainer/Towers/BoxContainer"]
 custom_minimum_size = Vector2(100, 2.08165e-12)
@@ -80,6 +85,7 @@ layout_mode = 2
 size_flags_vertical = 3
 text = "Ice Tower"
 script = ExtResource("3_yfwwx")
+instance = ExtResource("5_tdlmk")
 
 [node name="Bomb Tower" type="Button" parent="Shop/BoxContainer/Towers/BoxContainer"]
 custom_minimum_size = Vector2(100, 2.08165e-12)
@@ -87,6 +93,7 @@ layout_mode = 2
 size_flags_vertical = 3
 text = "Bomb Tower"
 script = ExtResource("3_yfwwx")
+instance = ExtResource("6_158jl")
 
 [node name="Archer Tower" type="Button" parent="Shop/BoxContainer/Towers/BoxContainer"]
 custom_minimum_size = Vector2(100, 2.08165e-12)
@@ -94,6 +101,7 @@ layout_mode = 2
 size_flags_vertical = 3
 text = "Archer Tower"
 script = ExtResource("3_yfwwx")
+instance = ExtResource("7_pdln5")
 
 [node name="Boost" type="Button" parent="Shop/BoxContainer"]
 custom_minimum_size = Vector2(2.08165e-12, 100)
@@ -118,6 +126,14 @@ layout_mode = 2
 size_flags_vertical = 3
 text = "Spawner"
 script = ExtResource("8_ok5js")
+instance = ExtResource("9_f0wej")
+
+[node name="Armored" type="Button" parent="Shop/BoxContainer/Boost/BoxContainer"]
+custom_minimum_size = Vector2(100, 2.08165e-12)
+layout_mode = 2
+size_flags_vertical = 3
+text = "Armored"
+script = ExtResource("10_7rkon")
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="."]
 offset_right = 494.0
@@ -125,22 +141,6 @@ offset_bottom = 146.0
 texture_under = SubResource("GradientTexture1D_dhemu")
 texture_over = SubResource("GradientTexture1D_u4do2")
 texture_progress = SubResource("GradientTexture1D_2fl7i")
-
-[node name="TopLeftContainer" type="MarginContainer" parent="."]
-offset_right = 40.0
-offset_bottom = 40.0
-theme_override_constants/margin_left = 20
-theme_override_constants/margin_top = 20
-theme_override_constants/margin_right = 20
-theme_override_constants/margin_bottom = 20
-
-[node name="UserDetail" type="VBoxContainer" parent="TopLeftContainer"]
-layout_mode = 2
-
-[node name="Name" type="Label" parent="TopLeftContainer/UserDetail"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 24
-text = "Name"
 
 [connection signal="toggled" from="Shop" to="Shop" method="_on_toggled"]
 [connection signal="toggled" from="Shop/BoxContainer/Towers" to="Shop/BoxContainer/Towers" method="_on_toggled"]
@@ -150,3 +150,4 @@ text = "Name"
 [connection signal="pressed" from="Shop/BoxContainer/Towers/BoxContainer/Archer Tower" to="Shop/BoxContainer/Towers/BoxContainer/Archer Tower" method="_on_pressed"]
 [connection signal="toggled" from="Shop/BoxContainer/Boost" to="Shop/BoxContainer/Boost" method="_on_toggled"]
 [connection signal="pressed" from="Shop/BoxContainer/Boost/BoxContainer/Spawner" to="Shop/BoxContainer/Boost/BoxContainer/Spawner" method="_on_pressed"]
+[connection signal="pressed" from="Shop/BoxContainer/Boost/BoxContainer/Armored" to="Shop/BoxContainer/Boost/BoxContainer/Armored" method="_on_pressed"]

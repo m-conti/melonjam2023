@@ -2,7 +2,7 @@ extends Node2D
 class_name Enemy
 
 @export var armor: int = 0
-@export var speed: int = 5 # px / s
+@export var speed: int = 10 # px / s
 @export var hp: int = 10
 
 @export var fly: bool = false
