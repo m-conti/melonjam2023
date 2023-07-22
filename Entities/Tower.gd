@@ -54,7 +54,7 @@ func _on_animation_finished(enemies: Array):
 
 
 func _on_timer_timeout():
-	var enemies_attackable = enemies_inside.filter(is_attackable)
+	var enemies_attackable = enemies_inside.filter(func(enemy): return enemy.hp > 0 and is_attackable(enemy))
 	
 	if enemies_attackable.size() <= 0:
 		return
