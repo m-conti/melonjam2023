@@ -8,6 +8,8 @@ var enemies_inside: Array = []
 @onready var map: Map = get_parent().map
 @export var price: int = 100
 
+@export var damage_animation: PackedScene
+
 
 signal has_been_placed(pos: Vector2i)
 
@@ -46,6 +48,9 @@ func _on_animation_finished(enemies: Array):
 	for enemy in enemies:
 		if is_instance_valid(enemy):
 			on_enemy_hit(enemy)
+			var anim: Sprite2D = damage_animation.instantiate()
+			enemy.add_child(anim)
+			anim.get_node("AnimationPlayer").animation_finished.connect(func(): anim.queue_free())
 
 
 func _on_timer_timeout():

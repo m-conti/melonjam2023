@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://cx5x7gr3i3jt8"]
+[gd_scene load_steps=8 format=3 uid="uid://cx5x7gr3i3jt8"]
 
 [ext_resource type="PackedScene" uid="uid://cwrl1q31ff0xu" path="res://Entities/Tower.tscn" id="1_6unlv"]
 [ext_resource type="Script" path="res://Towers/ArcherTower.gd" id="2_iq0s0"]
 [ext_resource type="Texture2D" uid="uid://bl3l6vqgx5vux" path="res://Assets/Foozle_2DS0017_Spire_TowerPack_1/Towers bases/PNGs/Tower 01.png" id="3_7ut1b"]
+[ext_resource type="PackedScene" uid="uid://icsysqelgh2k" path="res://Towers/ArcherAnim.tscn" id="3_8v1a2"]
 [ext_resource type="Texture2D" uid="uid://di0r7dn023f2y" path="res://Assets/Foozle_2DS0017_Spire_TowerPack_1/Towers Weapons/Tower 01/Spritesheets/Tower 01 - Level 01 - Weapon.png" id="4_soyht"]
 
 [sub_resource type="Animation" id="Animation_pbih3"]
@@ -29,6 +30,7 @@ _data = {
 script = ExtResource("2_iq0s0")
 damage = 7
 attack_cooldown = 0.4
+damage_animation = ExtResource("3_8v1a2")
 
 [node name="BaseSprite" parent="." index="0"]
 scale = Vector2(1.563, 1.389)

@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://cgiry6ketavbj"]
+[gd_scene load_steps=8 format=3 uid="uid://cgiry6ketavbj"]
 
 [ext_resource type="PackedScene" uid="uid://cwrl1q31ff0xu" path="res://Entities/Tower.tscn" id="1_hup7y"]
 [ext_resource type="Script" path="res://Towers/BombTower.gd" id="2_g047q"]
+[ext_resource type="PackedScene" uid="uid://deqmf5ghrre1x" path="res://Towers/BombAnim.tscn" id="3_50q6j"]
 [ext_resource type="Texture2D" uid="uid://cfc7ee42s5xnj" path="res://Assets/Foozle_2DS0018_Spire_TowerPack_2/Towers bases/PNGs/Tower 04.png" id="3_jjxri"]
 [ext_resource type="Texture2D" uid="uid://fw05ifxo67s4" path="res://Assets/Foozle_2DS0018_Spire_TowerPack_2/Towers Weapons/Tower 04/PNGs/Tower 04 - Level 01 - Weapon.png" id="4_bggfr"]
 
@@ -29,6 +30,7 @@ _data = {
 script = ExtResource("2_g047q")
 damage_radius = 1000.0
 damage = 100
+damage_animation = ExtResource("3_50q6j")
 
 [node name="BaseSprite" parent="." index="0"]
 scale = Vector2(1.563, 1.389)
