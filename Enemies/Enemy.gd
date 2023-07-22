@@ -25,14 +25,16 @@ func _enter_tree():
 func init(player_number: int, current_case: Vector2i):
 	$HitBox.set_collision_layer_value(player_number, true)
 	$HitBox.set_collision_mask_value(player_number, true)
-	$Sprite2D.material = ShaderMaterial.new()
-	$Sprite2D.material.shader = shaders[player_number - 1]
+
 	
 	target_case = current_case
 	prev_case = current_case
 
 
 func _ready():
+	var player_index = NetworkState.get_player_index_by_id(self.get_multiplayer_authority())
+	$Sprite2D.material = ShaderMaterial.new()
+	$Sprite2D.material.shader = shaders[player_index]
 #	print("New Enemy", self)
 #	print("base values:")
 #	print("armor:",  armor)
