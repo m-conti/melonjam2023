@@ -18,11 +18,6 @@ func _init_grid():
 
 func _ready():
 	set_multiplayer_authority(self.name.to_int())
-	print("""Scene:
-	player_id: %s
-	self_id: %d
-	""" % [ self.name, multiplayer.get_unique_id() ])
-	print(is_multiplayer_authority())
 	set_visibility(is_multiplayer_authority())
 	
 	var spawner: Spawner = load("res://Entities/Spawner.tscn").instantiate()
