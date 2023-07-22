@@ -8,6 +8,8 @@ var enemies_inside: Array = []
 @onready var map: Map = get_parent().map
 @export var price: int = 100
 
+@export var damage_animation: PackedScene
+
 
 signal has_been_placed(pos: Vector2i)
 
@@ -42,6 +44,15 @@ func _on_area_2d_area_exited(area):
 	enemies_inside.erase(enemy)
 
 
+func _on_animation_finished(enemies: Array):
+	for enemy in enemies:
+		if is_instance_valid(enemy):
+			on_enemy_hit(enemy)
+			var anim: Sprite2D = damage_animation.instantiate()
+			enemy.add_child(anim)
+			anim.get_node("AnimationPlayer").animation_finished.connect(func(): anim.queue_free())
+
+
 func _on_timer_timeout():
 	var enemies_attackable = enemies_inside.filter(is_attackable)
 	
@@ -50,23 +61,27 @@ func _on_timer_timeout():
 	
 	if attacking_type == EAttackingType.lowest_health:
 		enemies_attackable.sort_custom(func(x, y): return x.hp <= y.hp)
-		on_enemy_hit(enemies_attackable[0])
+		anime_and_attack_enemies([enemies_attackable[0]])
 	elif attacking_type == EAttackingType.biggest_health:
 		enemies_attackable.sort_custom(func(x, y): return x.hp >= y.hp)
-		on_enemy_hit(enemies_attackable[0])
+		anime_and_attack_enemies([enemies_attackable[0]])
 	elif attacking_type == EAttackingType.random:
-		on_enemy_hit(enemies_attackable.pick_random())
+		anime_and_attack_enemies([enemies_attackable.pick_random()])
 	elif attacking_type == EAttackingType.first_in_line:
-		on_enemy_hit(enemies_attackable[0])
+		anime_and_attack_enemies([enemies_attackable[0]])
 	elif attacking_type == EAttackingType.last_in_line:
-		on_enemy_hit(enemies_attackable[enemies_attackable.size() - 1])
+		anime_and_attack_enemies([enemies_attackable[enemies_attackable.size() - 1]])
 	elif attacking_type == EAttackingType.all:
-		for enemy in enemies_attackable:
-			on_enemy_hit(enemy)
+		anime_and_attack_enemies(enemies_attackable)
 
 
 func is_attackable(enemy: Enemy) -> bool:
 	return false
+
+
+func anime_and_attack_enemies(enemies: Array):
+	$AnimationPlayer.play("Attack")
+	$AnimationPlayer.animation_finished.connect(func(x): _on_animation_finished(enemies), CONNECT_ONE_SHOT)
 
 
 func on_enemy_hit(enemy):
