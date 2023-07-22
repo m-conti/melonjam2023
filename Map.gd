@@ -23,8 +23,7 @@ func _ready():
 	self_id: %d
 	""" % [ self.name, multiplayer.get_unique_id() ])
 	print(is_multiplayer_authority())
-	if is_multiplayer_authority(): show()
-	else: hide()
+	set_visibility(is_multiplayer_authority())
 	
 	var spawner: Spawner = load("res://Entities/Spawner.tscn").instantiate()
 	spawner.place_on_map(Vector2i(3, 3))
@@ -46,7 +45,7 @@ func is_in_grid(pos: Vector2i) -> bool:
 func add_at_pos(object: Node2D, pos: Vector2i):
 	if not (is_in_grid(pos) and grid[pos.x][pos.y] == null):
 		return
-	
+
 	grid[pos.x][pos.y] = object
 	
 	if object.get_parent() == null:
@@ -55,3 +54,11 @@ func add_at_pos(object: Node2D, pos: Vector2i):
 		object.reparent(self)
 	
 	object.position = tilemap.map_to_local(pos)
+
+func set_visibility(value: bool):
+	if value:
+		show()
+		$HUD.show()
+	else:
+		hide()
+		$HUD.hide()
