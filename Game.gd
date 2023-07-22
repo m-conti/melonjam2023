@@ -4,7 +4,11 @@ class_name Game
 var Map = load("res://map.tscn")
 
 var displayed_map_index:
-	get: return $MapsContainer.get_children().find(func (m: Node2D): return m.visible)
+	get:
+		for i in $MapsContainer.get_child_count():
+			if $MapsContainer.get_child(i).visible:
+				return i
+		return -1
 
 var displayed_map: Map:
 	get: return get_map_by_index(displayed_map_index)
@@ -14,6 +18,7 @@ func get_map_by_index(index: int) -> Map:
 
 func _input(event):
 	if event.is_action_pressed("game_next_map"):
+		var maps = $MapsContainer.get_children()
 		var current_index = displayed_map_index
 		displayed_map.set_visibility(false)
 		get_map_by_index(current_index + 1).set_visibility(true)
