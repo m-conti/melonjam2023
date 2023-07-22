@@ -1,7 +1,8 @@
 extends Button
 class_name ButtonShop
 
-@onready var map: Map = get_node("../../../../../..")
+var map: Map:
+	get: return GameState.game.displayed_map
 
 
 func _on_pressed():

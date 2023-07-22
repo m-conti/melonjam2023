@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://du3r2qjjlsm71"]
 
 [ext_resource type="Script" path="res://Map.gd" id="1_vd1cq"]
-[ext_resource type="PackedScene" uid="uid://dr5tn4o0pbc0o" path="res://HUD/HUD.tscn" id="2_hm6il"]
+[ext_resource type="PackedScene" uid="uid://dr5tn4o0pbc0o" path="res://HUD/HUDMap.tscn" id="2_hm6il"]
 [ext_resource type="Script" path="res://SyncContainer.gd" id="3_xol0r"]
 [ext_resource type="Texture2D" uid="uid://c4wjtn7a7au04" path="res://Assets/Foozle_2DT0012_Spire_Tileset_1/Tileset/PNGs/Grass Tileset.png" id="4_uecjo"]
 

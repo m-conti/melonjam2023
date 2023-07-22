@@ -22,17 +22,25 @@ func _input(event):
 		var current_index = displayed_map_index
 		displayed_map.set_visibility(false)
 		get_map_by_index(current_index + 1).set_visibility(true)
+		GameState.map_changed.emit(displayed_map)
 	elif event.is_action_pressed("game_previous_map"):
 		var current_index = displayed_map_index
 		displayed_map.set_visibility(false)
 		get_map_by_index(current_index - 1).set_visibility(true)
+		GameState.map_changed.emit(displayed_map)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass
+	GameState.start.connect(_on_start_game)
+
+
+func _on_start_game():
+	self.remove_pages()
+	self.start_game()
 
 func start_game():
 	if multiplayer.is_server(): set_maps()
+	
 
 
 func set_maps():

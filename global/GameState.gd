@@ -10,6 +10,9 @@ enum EGameStatus {
 
 var status: EGameStatus = EGameStatus.WAITING
 
+signal start
+signal map_changed(Map)
+
 var game:
 	get: return get_tree().root.get_node("game")
 
@@ -28,8 +31,7 @@ func is_game_strated():
 @rpc("authority", "call_local")
 func start_game():
 	self.status = EGameStatus.STARTED
-	game.remove_pages()
-	game.start_game()
+	self.start.emit()
 
 func disconnect_game():
 	self.status = EGameStatus.DISCONNECTED

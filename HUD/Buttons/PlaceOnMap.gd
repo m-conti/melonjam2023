@@ -13,8 +13,7 @@ func _on_pressed():
 
 
 func _process(delta_time):
-	if ghost == null:
-		return
+	if ghost == null: return
 	
 	var mouse_pos: Vector2i = map.tilemap.local_to_map(get_viewport().get_mouse_position() / map.tilemap.scale)
 	
@@ -28,9 +27,8 @@ func _process(delta_time):
 
 
 func _input(event):
-	if ghost == null:
-		return
-	
+	if ghost == null: return
+	if not map.is_multiplayer_authority(): return
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_LEFT:
 			var pos: Vector2i = map.tilemap.local_to_map(event.position / map.tilemap.scale)
