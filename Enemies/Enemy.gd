@@ -10,8 +10,8 @@ class_name Enemy
 @onready var map: Map = get_parent().get_parent()
 
 var shaders = [
-	preload("res://Enemies/Shaders/Enemy.gdshader"),
-	preload("res://Enemies/Shaders/Ally.gdshader")]
+	preload("res://Enemies/Shaders/Red.gdshader"),
+	preload("res://Enemies/Shaders/Blue.gdshader")]
 
 var target_case: Vector2i
 var prev_case: Vector2i
