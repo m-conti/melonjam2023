@@ -36,18 +36,18 @@ damage_animation = ExtResource("3_atffn")
 [node name="BaseSprite" parent="." index="0"]
 scale = Vector2(1.563, 1.389)
 texture = ExtResource("3_h5nje")
-offset = Vector2(2.08165e-12, -32)
+offset = Vector2(2.08165e-12, -28)
 hframes = 3
 
 [node name="WeaponSprite" parent="." index="1"]
 scale = Vector2(1.042, 1.042)
 texture = ExtResource("4_t5vrb")
-offset = Vector2(2.08165e-12, -65)
+offset = Vector2(2.08165e-12, -61)
 hframes = 29
 vframes = 2
 frame = 29
 
-[node name="AnimationPlayer" parent="." index="4"]
+[node name="AnimationPlayer" parent="." index="5"]
 libraries = {
 "": SubResource("AnimationLibrary_3qvm6")
 }

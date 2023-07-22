@@ -15,14 +15,14 @@ func _on_pressed():
 func _process(delta_time):
 	if ghost == null: return
 	
-	var mouse_pos: Vector2i = map.tilemap.local_to_map(get_viewport().get_mouse_position())
+	var mouse_pos: Vector2i = map.tilemap.local_to_map(get_viewport().get_mouse_position() / map.tilemap.scale)
 	
 	if not can_be_placed(mouse_pos):
 		ghost.visible = false
 		return
 	
 	ghost.visible = true
-	ghost.global_position = map.tilemap.map_to_local(mouse_pos)
+	ghost.global_position = map.tilemap.map_to_local(mouse_pos) * map.tilemap.scale
 	queue_redraw()
 
 
@@ -31,7 +31,7 @@ func _input(event):
 	if not map.is_multiplayer_authority(): return
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_LEFT:
-			var pos: Vector2i = map.tilemap.local_to_map(event.position) 
+			var pos: Vector2i = map.tilemap.local_to_map(event.position / map.tilemap.scale)
 			
 			if not can_be_placed(pos):
 				return

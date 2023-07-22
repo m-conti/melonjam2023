@@ -10,7 +10,7 @@ func _enter_tree():
 func spawn():
 	var new_enemy: Enemy = enemy.instantiate()
 	var map: Map = get_parent().get_parent()
-	new_enemy.init(NetworkState.get_player_number_by_map(map), map.tilemap.local_to_map(position))
+	new_enemy.init(NetworkState.get_player_number_by_map(map), map.tilemap.local_to_map(position / map.tilemap.scale))
 
 	get_parent().add_child(new_enemy, true)
 	new_enemy.position = position

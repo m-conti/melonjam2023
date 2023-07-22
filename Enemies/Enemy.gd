@@ -64,7 +64,7 @@ func get_next_case() -> Vector2i:
 
 
 func _process(delta_time):
-	var target_pos: Vector2 = map.tilemap.map_to_local(target_case)
+	var target_pos: Vector2 = map.tilemap.map_to_local(target_case) * map.tilemap.scale
 	position = position.move_toward(target_pos, speed * delta_time)
 
 	if target_pos.is_equal_approx(position):
