@@ -8,7 +8,7 @@ var ghost: Node2D = null
 func _on_pressed():
 	ghost = instance.instantiate()
 	ghost.modulate = Color(Color.WHITE, 0.5)
-	
+
 	add_child(ghost)
 
 

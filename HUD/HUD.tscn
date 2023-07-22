@@ -58,6 +58,7 @@ grow_vertical = 0
 theme_override_constants/separation = 10
 
 [node name="Towers" type="Button" parent="Shop/BoxContainer"]
+visible = false
 custom_minimum_size = Vector2(2.08165e-12, 100)
 layout_mode = 2
 toggle_mode = true
