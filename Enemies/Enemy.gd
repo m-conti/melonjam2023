@@ -9,6 +9,10 @@ class_name Enemy
 
 @onready var map: Map = get_parent().get_parent()
 
+var shaders = [
+	preload("res://Enemies/Shaders/Red.gdshader"),
+	preload("res://Enemies/Shaders/Blue.gdshader")]
+
 var target_case: Vector2i
 var prev_case: Vector2i
 
@@ -22,6 +26,8 @@ func _enter_tree():
 func init(player_number: int, current_case: Vector2i):
 	$HitBox.set_collision_layer_value(player_number, true)
 	$HitBox.set_collision_mask_value(player_number, true)
+	$Sprite2D.material = ShaderMaterial.new()
+	$Sprite2D.material.shader = shaders[player_number - 1]
 	
 	target_case = current_case
 	prev_case = current_case
@@ -47,7 +53,7 @@ func _on_damage(amount):
 
 
 func get_next_case() -> Vector2i:
-	var neighbours = [Vector2i(1, 0), Vector2i(0, 1), Vector2i(-1, 0), Vector2i(0, -1)]
+	var neighbours = [Vector2i.RIGHT, Vector2i.DOWN, Vector2i.LEFT, Vector2i.UP]
 	neighbours.shuffle()
 	
 	for neighbour in neighbours:
