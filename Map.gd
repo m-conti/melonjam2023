@@ -44,9 +44,9 @@ func add_at_pos(object: Node2D, pos: Vector2i):
 	grid[pos.x][pos.y] = object
 	
 	if object.get_parent() == null:
-		add_child(object)
+		$SyncContainer.add_child(object)
 	else:
-		object.reparent(self)
+		object.reparent($SyncContainer)
 	
 	for child in object.get_children():
 		if child is Area2D:

@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://7pnedj7wsgrh"]
+[gd_scene load_steps=4 format=3 uid="uid://cx5x7gr3i3jt8"]
 
 [ext_resource type="PackedScene" uid="uid://cwrl1q31ff0xu" path="res://Entities/Tower.tscn" id="1_6unlv"]
 [ext_resource type="Script" path="res://Towers/ArcherTower.gd" id="2_iq0s0"]
