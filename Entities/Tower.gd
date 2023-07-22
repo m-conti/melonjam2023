@@ -5,6 +5,10 @@ var enemies_inside: Array = []
 @export var cooldown: float = 1.0
 @onready var timer: Timer = $Timer
 @export var attacking_type: EAttackingType
+@onready var map: Map = find_parent("Map")
+
+
+signal has_been_placed(pos: Vector2i)
 
 
 enum EAttackingType
@@ -63,3 +67,19 @@ func _on_timer_timeout():
 
 func on_enemy_hit(enemy):
 	pass
+
+
+func can_be_placed(pos: Vector2i) -> bool:
+	if not map.is_in_grid(pos):
+		return false
+	if map.grid[pos.x][pos.y] == null:
+		return true
+	return false
+
+
+func place_tower(pos: Vector2i):
+	if not can_be_placed(pos):
+		return
+	
+	map.grid[pos.x][pos.y] = self
+	has_been_placed.emit(pos)

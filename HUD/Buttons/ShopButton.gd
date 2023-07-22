@@ -20,8 +20,16 @@ func _process(delta_time):
 	if ghost_tower == null:
 		return
 	
-	var case_size: Vector2 = get_viewport_rect().size / Vector2(map.width, map.height)
+	var mouse_pos: Vector2i = map.tilemap.local_to_map(get_viewport().get_mouse_position())
 	
-	ghost_tower.global_position = (get_viewport().get_mouse_position() / case_size).floor() * case_size
+	if not ghost_tower.can_be_placed(mouse_pos):
+		ghost_tower.visible = false
+		return
+	
+	ghost_tower.visible = true
+	ghost_tower.global_position = map.tilemap.map_to_local(mouse_pos)
+	
 	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
 		ghost_tower.modulate = Color.WHITE
+		ghost_tower.place_tower(mouse_pos)
+		ghost_tower = null
