@@ -24,7 +24,7 @@ func _init():
 
 
 func _ready():
-	var spawner: Spawner = load("res://Enemies/Spawner.tscn").instantiate()
+	var spawner: Spawner = load("res://Entities/Spawner.tscn").instantiate()
 	add_at_pos(spawner, Vector2i(3, 3))
 
 
@@ -41,5 +41,10 @@ func add_at_pos(object: Node2D, pos: Vector2i):
 		return
 	
 	grid[pos.x][pos.y] = object
-	add_child(object)
+	
+	if object.get_parent() == null:
+		add_child(object)
+	else:
+		object.reparent(self)
+	
 	object.position = tilemap.map_to_local(pos)

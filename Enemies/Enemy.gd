@@ -7,7 +7,7 @@ class_name Enemy
 
 @export var fly: bool = false
 
-@onready var map: Map = find_parent("Map")
+@onready var map: Map = get_parent()
 var path_idx: int = 0
 var path: PackedVector2Array = PackedVector2Array()
 
