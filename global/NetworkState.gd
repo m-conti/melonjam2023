@@ -19,6 +19,9 @@ signal error(what)
 func get_player_list():
 	return players.values()
 
+func get_player_keys():
+	return players.keys()
+
 func get_player_name():
 	return player_name
 

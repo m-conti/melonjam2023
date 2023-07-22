@@ -49,6 +49,8 @@ func _on_connection_success():
 	$Connect.hide()
 	$Players.show()
 
+func _on_start_pressed():
+	GameState.start_game.rpc()
 
 func _on_connection_failed():
 	$Connect/Host.disabled = false
@@ -68,5 +70,4 @@ func refresh_lobby():
 	$Players/List.add_item(NetworkState.get_player_name() + " (You)")
 	for p in players:
 		$Players/List.add_item(p)
-
 	$Players/Start.disabled = not multiplayer.is_server()

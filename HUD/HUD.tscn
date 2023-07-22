@@ -1,8 +1,9 @@
 [gd_scene load_steps=14 format=3 uid="uid://dr5tn4o0pbc0o"]
 
+[ext_resource type="Script" path="res://HUD/HUD.gd" id="1_3yk4g"]
 [ext_resource type="Script" path="res://HUD/Buttons/ShopButton.gd" id="1_4tfwb"]
 [ext_resource type="Script" path="res://HUD/Buttons/MenuBar.gd" id="1_vcj4m"]
-[ext_resource type="ButtonGroup" uid="uid://pevhaqpsd8fq" path="res://HUD/Buttons/SubShop.tres" id="2_2hxj8"]
+[ext_resource type="ButtonGroup" path="res://HUD/Buttons/SubShop.tres" id="2_2hxj8"]
 [ext_resource type="PackedScene" uid="uid://cnkovvaqbfwqo" path="res://Towers/FireTower.tscn" id="4_n7tev"]
 [ext_resource type="PackedScene" uid="uid://cuhygbww0otik" path="res://Towers/IceTower.tscn" id="5_tdlmk"]
 [ext_resource type="PackedScene" uid="uid://cgiry6ketavbj" path="res://Towers/BombTower.tscn" id="6_158jl"]
@@ -28,6 +29,7 @@ colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1)
 gradient = SubResource("Gradient_kfhv5")
 
 [node name="HUD" type="CanvasLayer"]
+script = ExtResource("1_3yk4g")
 
 [node name="Shop" type="Button" parent="."]
 anchors_preset = 3

@@ -7,6 +7,7 @@ var ghost_tower: Tower = null
 @onready var map: Map = find_parent("Map")
 
 
+
 func _on_pressed():
 	var new_tower: Tower = tower_instance.instantiate()
 	

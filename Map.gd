@@ -6,9 +6,6 @@ class_name Map
 @export var height: int = 20
 @onready var tilemap: TileMap = $TileMap
 
-var player_id: int
-var is_current_player_map:
-	get: return NetworkState.is_current_player_id(player_id)
 
 var grid: Array = []
 
@@ -29,7 +26,7 @@ func _ready():
 
 
 func set_player(player_id):
-	self.player_id = player_id
+	set_multiplayer_authority(player_id)
 
 
 func is_in_grid(pos: Vector2i) -> bool:

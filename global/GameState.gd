@@ -22,5 +22,10 @@ func _process(delta):
 func is_game_strated():
 	return self.status == EGameStatus.STARTED
 
+@rpc("authority", "call_local")
+func start_game():
+	self.status = EGameStatus.STARTED
+	get_tree().change_scene_to_file("res://game.tscn")
+
 func disconnect_game():
 	self.status = EGameStatus.DISCONNECTED
