@@ -19,3 +19,7 @@ format = 2
 
 [node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
 replication_config = SubResource("SceneReplicationConfig_dbbrf")
+
+[node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="."]
+_spawnable_scenes = PackedStringArray("res://Towers/ArcherTower.tscn", "res://Towers/BombTower.tscn", "res://Towers/FireTower.tscn", "res://Towers/IceTower.tscn", "res://Entities/Spawner.tscn")
+spawn_path = NodePath("..")
