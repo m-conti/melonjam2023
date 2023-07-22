@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" path="res://Towers/IceTower.tscn" id="5_tdlmk"]
 [ext_resource type="PackedScene" path="res://Towers/BombTower.tscn" id="6_158jl"]
 [ext_resource type="Texture2D" uid="uid://dqoso3dfi3lah" path="res://Towers/ArcherTower.jpg" id="7_382pc"]
-[ext_resource type="PackedScene" path="res://Towers/ArcherTower.tscn" id="7_pdln5"]
+[ext_resource type="PackedScene" uid="uid://cx5x7gr3i3jt8" path="res://Towers/ArcherTower.tscn" id="7_pdln5"]
 [ext_resource type="Script" path="res://HUD/Buttons/SpawnerButton.gd" id="8_ok5js"]
 [ext_resource type="PackedScene" path="res://Entities/Spawner.tscn" id="9_f0wej"]
 [ext_resource type="Script" path="res://HUD/Buttons/ArmoredButton.gd" id="10_7rkon"]

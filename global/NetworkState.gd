@@ -27,7 +27,7 @@ func get_player_name():
 
 func get_player_number_by_map(map: Map):
 	var id = map.name.to_int()
-	return get_player_keys().find(id)
+	return get_player_keys().find(id) + 1
 
 func is_current_player_id(id: int):
 	if not multiplayer: return true

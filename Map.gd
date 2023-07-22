@@ -42,17 +42,17 @@ func add_at_pos(object: Node2D, pos: Vector2i):
 		return
 
 	grid[pos.x][pos.y] = object
-	
+
 	if object.get_parent() == null:
 		$SyncContainer.add_child(object)
 	else:
 		object.reparent($SyncContainer)
-	
+
 	for child in object.get_children():
 		if child is Area2D:
 			child.set_collision_layer_value(NetworkState.get_player_number_by_map(self), true)
 			child.set_collision_mask_value(NetworkState.get_player_number_by_map(self), true)
-	
+
 	object.position = tilemap.map_to_local(pos)
 
 func set_visibility(value: bool):
