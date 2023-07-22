@@ -1,6 +1,6 @@
 extends Node
 
-enum EGameState {
+enum EGameStatus {
 	WAITING,
 	READY,
 	STARTED,
@@ -8,8 +8,7 @@ enum EGameState {
 	DISCONNECTED
 }
 
-var state: EGameState = EGameState.WAITING
-
+var status: EGameStatus = EGameStatus.WAITING
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -21,7 +20,7 @@ func _process(delta):
 	pass
 
 func is_game_strated():
-	return state == EGameState.STARTED
+	return self.status == EGameStatus.STARTED
 
 func disconnect_game():
-	self.state = EGameState.DISCONNECTED
+	self.status = EGameStatus.DISCONNECTED
