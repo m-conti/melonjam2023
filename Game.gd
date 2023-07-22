@@ -13,10 +13,14 @@ var displayed_map_index:
 var displayed_map: Map:
 	get: return get_map_by_index(displayed_map_index)
 
+var player_map: Map:
+	get: return $MapsContainer.get_node(str(get_multiplayer_authority()))
+
 func get_map_by_index(index: int) -> Map:
 	return $MapsContainer.get_child((index + $MapsContainer.get_child_count()) % $MapsContainer.get_child_count())
 
 func _input(event):
+	if not GameState.is_game_strated(): return
 	if event.is_action_pressed("game_next_map"):
 		var maps = $MapsContainer.get_children()
 		var current_index = displayed_map_index
@@ -40,7 +44,6 @@ func _on_start_game():
 
 func start_game():
 	if multiplayer.is_server(): set_maps()
-	
 
 
 func set_maps():

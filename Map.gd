@@ -24,9 +24,7 @@ func _ready():
 	print("ready")
 	set_visibility(is_multiplayer_authority())
 	if not is_multiplayer_authority(): return
-	var spawner: Spawner = load("res://Entities/Spawner.tscn").instantiate()
-	spawner.place_on_map(Vector2i(3, 3))
-	add_at_pos(spawner, Vector2i(3, 3))
+	add_at_pos(load("res://Entities/Spawner.tscn"), Vector2i(3, 3))
 
 
 func _init():
@@ -41,15 +39,18 @@ func set_player(player_id):
 func is_in_grid(pos: Vector2i) -> bool:
 	return pos.x >= 0 and pos.x < width and pos.y >= 0 and pos.y < height
 
+@rpc("any_peer", "call_local")
+func add_at_pos_by_ressource(path: String, pos: Vector2i):
+	add_at_pos(load(path), pos)
 
-func add_at_pos(object: Node2D, pos: Vector2i):
+func add_at_pos(instance: PackedScene, pos: Vector2i):
+	print("PROCESS ADD " + str(get_multiplayer_authority()))
 	if not (is_in_grid(pos) and grid[pos.x][pos.y] == null):
 		return
 
+	var object = instance.instantiate()
 	grid[pos.x][pos.y] = object
 
-	if object.get_parent() != null:
-		object.get_parent().remove_child(object)
 	$SyncContainer.add_child(object, true)
 
 	for child in object.get_children():
@@ -58,6 +59,7 @@ func add_at_pos(object: Node2D, pos: Vector2i):
 			child.set_collision_mask_value(NetworkState.get_player_number_by_map(self), true)
 
 	object.position = tilemap.map_to_local(pos) * tilemap.scale
+	object.place_on_map(pos)
 
 func set_visibility(value: bool):
 	if value:
