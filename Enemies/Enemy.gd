@@ -7,15 +7,20 @@ class_name Enemy
 
 @export var fly: bool = false
 
-@onready var map: Map = get_parent()
-var path_idx: int = 0
-var path: PackedVector2Array = PackedVector2Array()
+@onready var map: Map = get_parent().get_parent()
+
+var target_case: Vector2i
+var prev_case: Vector2i
 
 signal damage(amount)
 
 
-func init(path):
-	self.path = path
+func init(player_number: int, current_case: Vector2i):
+	$HitBox.set_collision_layer_value(player_number, true)
+	$HitBox.set_collision_mask_value(player_number, true)
+	
+	target_case = current_case
+	prev_case = current_case
 
 
 func _ready():
@@ -37,13 +42,23 @@ func _on_damage(amount):
 		queue_free()
 
 
-func _process(delta_time):
-	if path.size() <= 0:
-		return
+func get_next_case() -> Vector2i:
+	var neighbours = [Vector2i(1, 0), Vector2i(0, 1), Vector2i(-1, 0), Vector2i(0, -1)]
+	neighbours.shuffle()
 	
-	var target_pos: Vector2 = map.tilemap.map_to_local(path[path_idx])
+	for neighbour in neighbours:
+		var new_target = target_case + neighbour
+		if map.is_in_grid(new_target) and map.grid[new_target.x][new_target.y] == null and new_target != prev_case:
+			return new_target
+	
+	return prev_case
+
+
+func _process(delta_time):
+	var target_pos: Vector2 = map.tilemap.map_to_local(target_case)
 	position = position.move_toward(target_pos, speed * delta_time)
 	
 	if target_pos.is_equal_approx(position):
-		path_idx += 1
-		path_idx %= path.size()
+		var new_target_case = get_next_case()
+		prev_case = target_case
+		target_case = new_target_case

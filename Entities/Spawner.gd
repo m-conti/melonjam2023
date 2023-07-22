@@ -7,7 +7,9 @@ class_name Spawner
 
 func spawn():
 	var new_enemy: Enemy = enemy.instantiate()
-	new_enemy.init(PackedVector2Array([Vector2(1, 1), Vector2(1, 5), Vector2(5, 5), Vector2(5, 1)]))
+	var map: Map = get_parent().get_parent()
+	
+	new_enemy.init(NetworkState.get_player_number_by_map(map), map.tilemap.local_to_map(position))
 	
 	get_parent().add_child(new_enemy)
 	new_enemy.position = position
