@@ -1,9 +1,15 @@
-[gd_scene load_steps=4 format=3 uid="uid://bv2qtaqo8tdpm"]
+[gd_scene load_steps=5 format=3 uid="uid://bv2qtaqo8tdpm"]
 
 [ext_resource type="Script" path="res://Enemies/Enemy.gd" id="1_8h1ux"]
 [ext_resource type="Texture2D" uid="uid://dhrndp70oikx6" path="res://Enemies/enemy.png" id="2_qehd4"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0hbpv"]
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_y6kew"]
+properties/0/path = NodePath(".:position")
+properties/0/spawn = true
+properties/0/sync = true
+properties/0/watch = false
 
 [node name="Enemy" type="Node2D"]
 script = ExtResource("1_8h1ux")
@@ -17,5 +23,8 @@ shape = SubResource("CircleShape2D_0hbpv")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_qehd4")
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+replication_config = SubResource("SceneReplicationConfig_y6kew")
 
 [connection signal="damage" from="." to="." method="_on_damage"]

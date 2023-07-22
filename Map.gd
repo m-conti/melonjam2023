@@ -19,10 +19,14 @@ func _init_grid():
 func _ready():
 	set_multiplayer_authority(self.name.to_int())
 	set_visibility(is_multiplayer_authority())
-	
+
+	if not is_multiplayer_authority(): return
+
 	var spawner: Spawner = load("res://Entities/Spawner.tscn").instantiate()
+	spawner.set_multiplayer_authority(get_multiplayer_authority())
 	spawner.place_on_map(Vector2i(3, 3))
 	add_at_pos(spawner, Vector2i(3, 3))
+
 
 func _init():
 	_init_grid()

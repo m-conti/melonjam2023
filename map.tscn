@@ -21,7 +21,7 @@ format = 2
 replication_config = SubResource("SceneReplicationConfig_dbbrf")
 
 [node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="."]
-_spawnable_scenes = PackedStringArray("res://Entities/Tower.tscn", "res://Entities/Spawner.tscn")
+_spawnable_scenes = PackedStringArray("res://Entities/Tower.tscn", "res://Entities/Spawner.tscn", "res://Enemies/Enemy.tscn")
 spawn_path = NodePath("../SyncContainer")
 
 [node name="SyncContainer" type="Node2D" parent="."]

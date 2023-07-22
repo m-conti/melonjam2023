@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://pwltt60ecspc"]
+[gd_scene load_steps=6 format=3 uid="uid://cij1o64untoon"]
 
 [ext_resource type="Script" path="res://Entities/Spawner.gd" id="1_6oa2b"]
 [ext_resource type="PackedScene" uid="uid://tjxq8at77e7b" path="res://Enemies/Enemies/Zombie.tscn" id="2_p7l6v"]
@@ -10,6 +10,12 @@ colors = PackedColorArray(0.643137, 0.188235, 1, 1, 0.643137, 0.188235, 1, 1)
 gradient = SubResource("Gradient_chxqw")
 width = 1
 
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_w40bf"]
+properties/0/path = NodePath(".:position")
+properties/0/spawn = true
+properties/0/sync = true
+properties/0/watch = false
+
 [node name="Spawner" type="Node2D"]
 script = ExtResource("1_6oa2b")
 enemy = ExtResource("2_p7l6v")
@@ -20,3 +26,6 @@ autostart = true
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(100, 100)
 texture = SubResource("GradientTexture1D_ipmqn")
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+replication_config = SubResource("SceneReplicationConfig_w40bf")
