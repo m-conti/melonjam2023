@@ -1,17 +1,45 @@
 extends Node2D
+class_name Game
 
 var Map = load("res://map.tscn")
 
+var displayed_map_index:
+	get: return $MapsContainer.get_children().find(func (m: Node2D): return m.visible)
+
+var displayed_map: Node2D:
+	get: return get_map_by_index(displayed_map_index)
+
+func get_map_by_index(index: int) -> Node2D:
+	return $MapsContainer.get_child((index + $MapsContainer.get_child_count()) % $MapsContainer.get_child_count())
+
+func _input(event):
+	if event.is_action_pressed("game_next_map"):
+		var current_index = displayed_map_index
+		displayed_map.hide()
+		get_map_by_index(current_index + 1).show()
+	elif event.is_action_pressed("game_previous_map"):
+		var current_index = displayed_map_index
+		displayed_map.hide()
+		get_map_by_index(current_index - 1).show()
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	for player_id in NetworkState.get_player_list():
-		var map = Map.instantiate()
-		map.set_player(player_id)
-		if map.is_current_player_map: map.show()
-		else: map.hide()
-		add_child(map)
+	pass
 
+func start_game():
+	if multiplayer.is_server(): set_maps()
+
+
+func set_maps():
+	for player_id in NetworkState.get_player_keys():
+		var map = Map.instantiate()
+		map.name = str(player_id)
+		print("Server set_map: %d" % player_id)
+		$MapsContainer.add_child(map)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
+
+func remove_pages():
+	$pages.remove_child($pages/lobby)

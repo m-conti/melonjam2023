@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://menu/lobby.gd" id="1"]
 
-[node name="Lobby" type="Control"]
+[node name="lobby" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0

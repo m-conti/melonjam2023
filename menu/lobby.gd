@@ -14,10 +14,6 @@ func _ready():
 		$Connect/Name.text = desktop_path[desktop_path.size() - 2]
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-
 func _on_host_pressed():
 	var player_name = $Connect/Name.text
 	if player_name == "":
@@ -29,7 +25,6 @@ func _on_host_pressed():
 	$Connect/ErrorLabel.text = ""
 
 	NetworkState.host_game(player_name)
-	refresh_lobby()
 
 func _on_join_pressed():
 	var player_name = $Connect/Name.text
@@ -49,6 +44,8 @@ func _on_connection_success():
 	$Connect.hide()
 	$Players.show()
 
+func _on_start_pressed():
+	GameState.start_game.rpc()
 
 func _on_connection_failed():
 	$Connect/Host.disabled = false
@@ -62,11 +59,13 @@ func _on_network_error(errtxt):
 	$Connect/Join.disabled = false
 
 func refresh_lobby():
-	var players = NetworkState.get_player_list()
-	players.sort()
+	var players = NetworkState.players
+	var keys = players.keys()
+	keys.sort()
 	$Players/List.clear()
-	$Players/List.add_item(NetworkState.get_player_name() + " (You)")
-	for p in players:
-		$Players/List.add_item(p)
-
+	for p in keys:
+		if NetworkState.is_current_player_id(p):
+			$Players/List.add_item(players[p] + " (You)")
+		else:
+			$Players/List.add_item(players[p])
 	$Players/Start.disabled = not multiplayer.is_server()

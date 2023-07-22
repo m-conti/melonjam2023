@@ -19,6 +19,9 @@ signal error(what)
 func get_player_list():
 	return players.values()
 
+func get_player_keys():
+	return players.keys()
+
 func get_player_name():
 	return player_name
 
@@ -43,8 +46,11 @@ func _player_disconnected(id):
 
 # Callback from SceneTree, only for clients (not server).
 func _connected_ok():
+	players[multiplayer.get_unique_id()] = player_name
+	player_list_changed.emit()
 	# We just connected to a server
 	connection_succeeded.emit()
+
 
 # Lobby management functions.
 @rpc("any_peer")
@@ -72,6 +78,8 @@ func host_game(new_player_name):
 	peer = ENetMultiplayerPeer.new()
 	peer.create_server(DEFAULT_PORT, MAX_PEERS)
 	multiplayer.set_multiplayer_peer(peer)
+	players[multiplayer.get_unique_id()] = player_name
+	player_list_changed.emit()
 
 func join_game(ip, new_player_name):
 	player_name = new_player_name
