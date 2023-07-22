@@ -46,23 +46,27 @@ func _on_timer_timeout():
 	if enemies_inside.size() <= 0:
 		return
 	
+	var enemies_attackable = enemies_inside.filter(is_attackable)
+	
 	if attacking_type == EAttackingType.lowest_health:
-		var enemies_inside_copy = enemies_inside.duplicate()
-		enemies_inside_copy.sort_custom(func(x, y): return x.health <= y.health)
-		on_enemy_hit(enemies_inside_copy[0])
+		enemies_attackable.sort_custom(func(x, y): return x.health <= y.health)
+		on_enemy_hit(enemies_attackable[0])
 	elif attacking_type == EAttackingType.biggest_health:
-		var enemies_inside_copy = enemies_inside.duplicate()
-		enemies_inside_copy.sort_custom(func(x, y): return x.health >= y.health)
-		on_enemy_hit(enemies_inside_copy[0])
+		enemies_attackable.sort_custom(func(x, y): return x.health >= y.health)
+		on_enemy_hit(enemies_attackable[0])
 	elif attacking_type == EAttackingType.random:
-		on_enemy_hit(enemies_inside.pick_random())
+		on_enemy_hit(enemies_attackable.pick_random())
 	elif attacking_type == EAttackingType.first_in_line:
-		on_enemy_hit(enemies_inside[0])
+		on_enemy_hit(enemies_attackable[0])
 	elif attacking_type == EAttackingType.last_in_line:
-		on_enemy_hit(enemies_inside[enemies_inside.size() - 1])
+		on_enemy_hit(enemies_attackable[enemies_attackable.size() - 1])
 	elif attacking_type == EAttackingType.all:
-		for enemy in enemies_inside:
+		for enemy in enemies_attackable:
 			on_enemy_hit(enemy)
+
+
+func is_attackable(enemy: Enemy) -> bool:
+	return false
 
 
 func on_enemy_hit(enemy):

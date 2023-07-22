@@ -6,3 +6,7 @@ extends Tower
 
 func on_enemy_hit(enemy: Enemy):
 	enemy.damage_received.emit(damage) # TODO: THIS
+
+
+func is_attackable(enemy: Enemy) -> bool:
+	return true
