@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://tjxq8at77e7b"]
-
-[ext_resource type="PackedScene" uid="uid://bv2qtaqo8tdpm" path="res://Enemies/Enemy.tscn" id="1_dlpsd"]
-
-[node name="Enemy" instance=ExtResource("1_dlpsd")]
-speed = 20
