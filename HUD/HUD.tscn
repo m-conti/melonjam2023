@@ -144,10 +144,4 @@ texture_progress = SubResource("GradientTexture1D_2fl7i")
 
 [connection signal="toggled" from="Shop" to="Shop" method="_on_toggled"]
 [connection signal="toggled" from="Shop/BoxContainer/Towers" to="Shop/BoxContainer/Towers" method="_on_toggled"]
-[connection signal="pressed" from="Shop/BoxContainer/Towers/BoxContainer/Fire Tower" to="Shop/BoxContainer/Towers/BoxContainer/Fire Tower" method="_on_pressed"]
-[connection signal="pressed" from="Shop/BoxContainer/Towers/BoxContainer/Ice Tower" to="Shop/BoxContainer/Towers/BoxContainer/Ice Tower" method="_on_pressed"]
-[connection signal="pressed" from="Shop/BoxContainer/Towers/BoxContainer/Bomb Tower" to="Shop/BoxContainer/Towers/BoxContainer/Bomb Tower" method="_on_pressed"]
-[connection signal="pressed" from="Shop/BoxContainer/Towers/BoxContainer/Archer Tower" to="Shop/BoxContainer/Towers/BoxContainer/Archer Tower" method="_on_pressed"]
 [connection signal="toggled" from="Shop/BoxContainer/Boost" to="Shop/BoxContainer/Boost" method="_on_toggled"]
-[connection signal="pressed" from="Shop/BoxContainer/Boost/BoxContainer/Spawner" to="Shop/BoxContainer/Boost/BoxContainer/Spawner" method="_on_pressed"]
-[connection signal="pressed" from="Shop/BoxContainer/Boost/BoxContainer/Armored" to="Shop/BoxContainer/Boost/BoxContainer/Armored" method="_on_pressed"]
