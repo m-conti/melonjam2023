@@ -6,6 +6,7 @@ var enemies_inside: Array = []
 @onready var timer: Timer = $Timer
 @export var attacking_type: EAttackingType
 @onready var map: Map = find_parent("Map")
+@export var price: int = 100
 
 
 signal has_been_placed(pos: Vector2i)
@@ -81,6 +82,7 @@ func place_tower(pos: Vector2i):
 	if not can_be_placed(pos):
 		return
 	
+	modulate = Color.WHITE
 	map.grid[pos.x][pos.y] = self
 	has_been_placed.emit(pos)
 	timer.start(attack_cooldown)
