@@ -1,38 +1,38 @@
-[gd_scene load_steps=18 format=3 uid="uid://dr5tn4o0pbc0o"]
+[gd_scene load_steps=18 format=3 uid="uid://l7ft4434eda7"]
 
-[ext_resource type="Script" path="res://HUD/HUD.gd" id="1_3yk4g"]
-[ext_resource type="Script" path="res://HUD/Buttons/MenuBar.gd" id="1_vcj4m"]
-[ext_resource type="ButtonGroup" uid="uid://pevhaqpsd8fq" path="res://HUD/Buttons/SubShop.tres" id="2_2hxj8"]
-[ext_resource type="Script" path="res://HUD/Buttons/TowerButton.gd" id="3_yfwwx"]
-[ext_resource type="PackedScene" uid="uid://cnkovvaqbfwqo" path="res://Towers/FireTower.tscn" id="4_n7tev"]
-[ext_resource type="PackedScene" uid="uid://cuhygbww0otik" path="res://Towers/IceTower.tscn" id="5_tdlmk"]
-[ext_resource type="PackedScene" uid="uid://cgiry6ketavbj" path="res://Towers/BombTower.tscn" id="6_158jl"]
-[ext_resource type="PackedScene" uid="uid://cx5x7gr3i3jt8" path="res://Towers/ArcherTower.tscn" id="7_pdln5"]
-[ext_resource type="Script" path="res://HUD/Buttons/SpawnerButton.gd" id="8_ok5js"]
-[ext_resource type="PackedScene" uid="uid://cij1o64untoon" path="res://Entities/Spawner.tscn" id="9_f0wej"]
-[ext_resource type="Script" path="res://HUD/Buttons/ArmoredButton.gd" id="10_7rkon"]
+[ext_resource type="Script" path="res://HUD/HUDPlayer.gd" id="1_udhey"]
+[ext_resource type="Script" path="res://HUD/Buttons/MenuBar.gd" id="2_fb018"]
+[ext_resource type="ButtonGroup" uid="uid://pevhaqpsd8fq" path="res://HUD/Buttons/SubShop.tres" id="3_mfx6p"]
+[ext_resource type="Script" path="res://HUD/Buttons/TowerButton.gd" id="4_vaerj"]
+[ext_resource type="PackedScene" uid="uid://cnkovvaqbfwqo" path="res://Towers/FireTower.tscn" id="5_3oa8o"]
+[ext_resource type="PackedScene" uid="uid://cuhygbww0otik" path="res://Towers/IceTower.tscn" id="6_blmo6"]
+[ext_resource type="PackedScene" uid="uid://cgiry6ketavbj" path="res://Towers/BombTower.tscn" id="7_r5s8x"]
+[ext_resource type="PackedScene" uid="uid://cx5x7gr3i3jt8" path="res://Towers/ArcherTower.tscn" id="8_4b61l"]
+[ext_resource type="Script" path="res://HUD/Buttons/SpawnerButton.gd" id="9_jqeo6"]
+[ext_resource type="PackedScene" uid="uid://cij1o64untoon" path="res://Entities/Spawner.tscn" id="10_xjqej"]
+[ext_resource type="Script" path="res://HUD/Buttons/ArmoredButton.gd" id="11_nt6n7"]
 
 [sub_resource type="Gradient" id="Gradient_0lmct"]
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
 
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_dhemu"]
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_rvkeo"]
 gradient = SubResource("Gradient_0lmct")
 
 [sub_resource type="Gradient" id="Gradient_jnp7r"]
 offsets = PackedFloat32Array(0, 0.996503)
 colors = PackedColorArray(1, 0, 0, 1, 1, 0, 0, 1)
 
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_u4do2"]
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_keirh"]
 gradient = SubResource("Gradient_jnp7r")
 
 [sub_resource type="Gradient" id="Gradient_kfhv5"]
 colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1)
 
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_2fl7i"]
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_aocsf"]
 gradient = SubResource("Gradient_kfhv5")
 
-[node name="HUD" type="CanvasLayer"]
-script = ExtResource("1_3yk4g")
+[node name="HUDPlayer" type="CanvasLayer"]
+script = ExtResource("1_udhey")
 
 [node name="Shop" type="Button" parent="."]
 anchors_preset = 3
@@ -46,7 +46,7 @@ grow_horizontal = 0
 grow_vertical = 0
 toggle_mode = true
 text = "Shop"
-script = ExtResource("1_vcj4m")
+script = ExtResource("2_fb018")
 
 [node name="BoxContainer" type="VBoxContainer" parent="Shop"]
 visible = false
@@ -58,13 +58,12 @@ grow_vertical = 0
 theme_override_constants/separation = 10
 
 [node name="Towers" type="Button" parent="Shop/BoxContainer"]
-visible = false
 custom_minimum_size = Vector2(2.08165e-12, 100)
 layout_mode = 2
 toggle_mode = true
-button_group = ExtResource("2_2hxj8")
+button_group = ExtResource("3_mfx6p")
 text = "Towers"
-script = ExtResource("1_vcj4m")
+script = ExtResource("2_fb018")
 
 [node name="BoxContainer" type="HBoxContainer" parent="Shop/BoxContainer/Towers"]
 visible = false
@@ -79,24 +78,24 @@ custom_minimum_size = Vector2(100, 2.08165e-12)
 layout_mode = 2
 size_flags_vertical = 3
 text = "Fire Tower"
-script = ExtResource("3_yfwwx")
-instance = ExtResource("4_n7tev")
+script = ExtResource("4_vaerj")
+instance = ExtResource("5_3oa8o")
 
 [node name="Ice Tower" type="Button" parent="Shop/BoxContainer/Towers/BoxContainer"]
 custom_minimum_size = Vector2(100, 2.08165e-12)
 layout_mode = 2
 size_flags_vertical = 3
 text = "Ice Tower"
-script = ExtResource("3_yfwwx")
-instance = ExtResource("5_tdlmk")
+script = ExtResource("4_vaerj")
+instance = ExtResource("6_blmo6")
 
 [node name="Bomb Tower" type="Button" parent="Shop/BoxContainer/Towers/BoxContainer"]
 custom_minimum_size = Vector2(100, 2.08165e-12)
 layout_mode = 2
 size_flags_vertical = 3
 text = "Bomb Tower"
-script = ExtResource("3_yfwwx")
-instance = ExtResource("6_158jl")
+script = ExtResource("4_vaerj")
+instance = ExtResource("7_r5s8x")
 
 [node name="Archer Tower" type="Button" parent="Shop/BoxContainer/Towers/BoxContainer"]
 custom_minimum_size = Vector2(100, 2.08165e-12)
@@ -104,17 +103,17 @@ layout_mode = 2
 size_flags_vertical = 3
 text = "Archer Tower"
 icon_alignment = 1
-script = ExtResource("3_yfwwx")
-instance = ExtResource("7_pdln5")
+script = ExtResource("4_vaerj")
+instance = ExtResource("8_4b61l")
 
 [node name="Boost" type="Button" parent="Shop/BoxContainer"]
 custom_minimum_size = Vector2(2.08165e-12, 100)
 layout_mode = 2
 toggle_mode = true
-button_group = ExtResource("2_2hxj8")
+button_group = ExtResource("3_mfx6p")
 text = "Boost
 "
-script = ExtResource("1_vcj4m")
+script = ExtResource("2_fb018")
 
 [node name="BoxContainer" type="HBoxContainer" parent="Shop/BoxContainer/Boost"]
 visible = false
@@ -129,38 +128,22 @@ custom_minimum_size = Vector2(100, 2.08165e-12)
 layout_mode = 2
 size_flags_vertical = 3
 text = "Spawner"
-script = ExtResource("8_ok5js")
-instance = ExtResource("9_f0wej")
+script = ExtResource("9_jqeo6")
+instance = ExtResource("10_xjqej")
 
 [node name="Armored" type="Button" parent="Shop/BoxContainer/Boost/BoxContainer"]
 custom_minimum_size = Vector2(100, 2.08165e-12)
 layout_mode = 2
 size_flags_vertical = 3
 text = "Armored"
-script = ExtResource("10_7rkon")
+script = ExtResource("11_nt6n7")
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="."]
 offset_right = 494.0
 offset_bottom = 146.0
-texture_under = SubResource("GradientTexture1D_dhemu")
-texture_over = SubResource("GradientTexture1D_u4do2")
-texture_progress = SubResource("GradientTexture1D_2fl7i")
-
-[node name="TopLeftContainer" type="MarginContainer" parent="."]
-offset_right = 40.0
-offset_bottom = 40.0
-theme_override_constants/margin_left = 24
-theme_override_constants/margin_top = 24
-theme_override_constants/margin_right = 24
-theme_override_constants/margin_bottom = 24
-
-[node name="MapDetail" type="VBoxContainer" parent="TopLeftContainer"]
-layout_mode = 2
-
-[node name="Name" type="Label" parent="TopLeftContainer/MapDetail"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 26
-text = "map"
+texture_under = SubResource("GradientTexture1D_rvkeo")
+texture_over = SubResource("GradientTexture1D_keirh")
+texture_progress = SubResource("GradientTexture1D_aocsf")
 
 [connection signal="toggled" from="Shop" to="Shop" method="_on_toggled"]
 [connection signal="toggled" from="Shop/BoxContainer/Towers" to="Shop/BoxContainer/Towers" method="_on_toggled"]

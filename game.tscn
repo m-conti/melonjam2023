@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://ueqhw5qpv2f4"]
+[gd_scene load_steps=4 format=3 uid="uid://ueqhw5qpv2f4"]
 
 [ext_resource type="Script" path="res://Game.gd" id="1_ne5w7"]
 [ext_resource type="PackedScene" uid="uid://ce1bx3y7sg12" path="res://menu/lobby.tscn" id="2_ob0hp"]
+[ext_resource type="PackedScene" uid="uid://l7ft4434eda7" path="res://HUD/HUDPlayer.tscn" id="3_ngnij"]
 
 [node name="game" type="Node2D"]
 script = ExtResource("1_ne5w7")
@@ -17,3 +18,5 @@ spawn_path = NodePath("../MapsContainer")
 [node name="lobby" parent="pages" instance=ExtResource("2_ob0hp")]
 size_flags_horizontal = 3
 size_flags_vertical = 3
+
+[node name="HUD" parent="." instance=ExtResource("3_ngnij")]
