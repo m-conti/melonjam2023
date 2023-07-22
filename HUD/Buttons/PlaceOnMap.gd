@@ -38,14 +38,11 @@ func _input(event):
 			if not can_be_placed(pos):
 				return
 			
-			map.add_at_pos(ghost, pos)
-			ghost.place_on_map(pos)
-			
-			ghost.modulate = Color.WHITE
-			if ghost.get_parent():
-				ghost.get_parent().remove_child(ghost)
-			map.get_node("SyncContainer").add_child(ghost, true)
+			ghost.queue_free()
 			ghost = null
+			var new_instance = instance.instantiate()
+			map.add_at_pos(new_instance, pos)
+			new_instance.place_on_map(pos)
 		
 		elif event.button_index == MOUSE_BUTTON_RIGHT:
 			ghost.queue_free()

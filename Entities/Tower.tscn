@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://cwrl1q31ff0xu"]
+[gd_scene load_steps=6 format=3 uid="uid://cwrl1q31ff0xu"]
 
 [ext_resource type="Script" path="res://Entities/Tower.gd" id="1_4doac"]
 
@@ -12,7 +12,13 @@ width = 1
 [sub_resource type="CircleShape2D" id="CircleShape2D_kasgm"]
 radius = 500.0
 
-[node name="tower" type="Node2D"]
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_8nsfp"]
+properties/0/path = NodePath(".:position")
+properties/0/spawn = true
+properties/0/sync = true
+properties/0/watch = false
+
+[node name="Tower" type="Node2D"]
 script = ExtResource("1_4doac")
 
 [node name="BaseSprite" type="Sprite2D" parent="."]
@@ -27,6 +33,9 @@ texture = SubResource("GradientTexture1D_xqc07")
 shape = SubResource("CircleShape2D_kasgm")
 
 [node name="Timer" type="Timer" parent="."]
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+replication_config = SubResource("SceneReplicationConfig_8nsfp")
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]

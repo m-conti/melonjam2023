@@ -16,13 +16,12 @@ signal damage(amount)
 
 func _enter_tree():
 	set_multiplayer_authority(get_parent().get_multiplayer_authority())
-	if not is_multiplayer_authority(): print("SPAWN ON ENEMY SCREEN")
 
 
 func init(player_number: int, current_case: Vector2i):
 	$HitBox.set_collision_layer_value(player_number, true)
 	$HitBox.set_collision_mask_value(player_number, true)
-	
+
 	target_case = current_case
 	prev_case = current_case
 
@@ -61,7 +60,7 @@ func get_next_case() -> Vector2i:
 func _process(delta_time):
 	var target_pos: Vector2 = map.tilemap.map_to_local(target_case)
 	position = position.move_toward(target_pos, speed * delta_time)
-	
+
 	if target_pos.is_equal_approx(position):
 		var new_target_case = get_next_case()
 		prev_case = target_case
