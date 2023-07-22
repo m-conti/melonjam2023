@@ -22,6 +22,10 @@ func get_player_list():
 func get_player_name():
 	return player_name
 
+func is_current_player_id(id: int):
+	if not multiplayer: return true
+	return multiplayer.get_unique_id() == id
+
 
 # Callback from SceneTree.
 func _player_connected(id):
