@@ -25,14 +25,12 @@ func _ready():
 	print(is_multiplayer_authority())
 	if is_multiplayer_authority(): show()
 	else: hide()
+	
+	var spawner: Spawner = load("res://Entities/Spawner.tscn").instantiate()
+	add_at_pos(spawner, Vector2i(3, 3))
 
 func _init():
 	_init_grid()
-
-
-func _ready():
-	var spawner: Spawner = load("res://Entities/Spawner.tscn").instantiate()
-	add_at_pos(spawner, Vector2i(3, 3))
 
 
 func set_player(player_id):

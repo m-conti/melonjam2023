@@ -30,7 +30,6 @@ colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1)
 gradient = SubResource("Gradient_kfhv5")
 
 [node name="HUD" type="CanvasLayer"]
-script = ExtResource("1_3yk4g")
 
 [node name="Shop" type="Button" parent="."]
 anchors_preset = 3

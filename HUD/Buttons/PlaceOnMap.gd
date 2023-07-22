@@ -3,7 +3,7 @@ class_name PlaceOnMap
 
 @export var instance: PackedScene
 var ghost: Node2D = null
-@onready var map: Map = $"../../../../../.."
+@onready var map: Map = get_node("../../../../../..")
 
 
 func _on_pressed():
