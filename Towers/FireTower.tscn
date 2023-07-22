@@ -5,3 +5,7 @@
 
 [node name="tower" instance=ExtResource("1_46fn7")]
 script = ExtResource("2_bybs5")
+duration = 2.0
+tick_duration = 0.2
+damage_per_tick = 1
+attacking_type = 5

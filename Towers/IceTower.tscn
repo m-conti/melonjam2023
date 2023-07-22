@@ -7,3 +7,4 @@
 script = ExtResource("2_hd4r2")
 speed_factor = 0.5
 duration = 1.0
+attacking_type = 5
