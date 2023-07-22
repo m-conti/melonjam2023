@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://cgiry6ketavbj"]
+
+[ext_resource type="PackedScene" uid="uid://cwrl1q31ff0xu" path="res://Entities/Tower.tscn" id="1_hup7y"]
+[ext_resource type="Script" path="res://Towers/BombTower.gd" id="2_g047q"]
+
+[node name="tower" instance=ExtResource("1_hup7y")]
+script = ExtResource("2_g047q")
+damage_radius = 2.0
+damage = 5

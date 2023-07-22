@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://cuhygbww0otik"]
+
+[ext_resource type="PackedScene" uid="uid://cwrl1q31ff0xu" path="res://Entities/Tower.tscn" id="1_v1doj"]
+[ext_resource type="Script" path="res://Towers/IceTower.gd" id="2_hd4r2"]
+
+[node name="tower" instance=ExtResource("1_v1doj")]
+script = ExtResource("2_hd4r2")
+speed_factor = 0.5
+duration = 1.0

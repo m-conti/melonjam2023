@@ -1,5 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://cnkovvaqbfwqo"]
+[gd_scene load_steps=3 format=3 uid="uid://cnkovvaqbfwqo"]
 
 [ext_resource type="PackedScene" uid="uid://cwrl1q31ff0xu" path="res://Entities/Tower.tscn" id="1_46fn7"]
+[ext_resource type="Script" path="res://Towers/FireTower.gd" id="2_bybs5"]
 
 [node name="tower" instance=ExtResource("1_46fn7")]
+script = ExtResource("2_bybs5")

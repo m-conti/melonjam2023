@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://ckf8pvyab1n2n"]
-
-[ext_resource type="Script" path="res://Enemies/Modifiers/Slow/Slow.gd" id="1_6yrar"]
-
-[node name="Slow" type="Node"]
-script = ExtResource("1_6yrar")

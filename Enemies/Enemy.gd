@@ -1,9 +1,11 @@
 extends CharacterBody2D
 class_name Enemy
 
-var armor = 0
-var speed = 5
-var hp = 10
+@export var armor: int = 0
+@export var speed: int = 5
+@export var hp: int = 10
+
+@export var fly: bool = false
 
 func _ready():
 	print("New Enemy", self)
@@ -11,9 +13,6 @@ func _ready():
 	print("armor:",  armor)
 	print("speed:", speed)
 	print("hp:", hp)
-	for mod in $Modifiers.get_children():
-		print("applying Modifier:", mod)
-		mod.apply_modifier(self)
 	print("Modified values:")
 	print("armor:",  armor)
 	print("speed:", speed)

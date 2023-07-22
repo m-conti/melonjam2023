@@ -2,7 +2,7 @@ extends Node2D
 class_name Tower
 
 var enemies_inside: Array = []
-@export var cooldown: float = 1.0
+@export var attack_cooldown: float = 1.0
 @onready var timer: Timer = $Timer
 @export var attacking_type: EAttackingType
 @onready var map: Map = find_parent("Map")
@@ -23,7 +23,7 @@ enum EAttackingType
 
 
 func _ready():
-	timer.wait_time = cooldown
+	timer.wait_time = attack_cooldown
 
 
 func _on_area_2d_area_entered(area):
