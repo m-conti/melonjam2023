@@ -50,11 +50,11 @@ func _on_animation_finished(enemies: Array):
 			on_enemy_hit(enemy)
 			var anim: Sprite2D = damage_animation.instantiate()
 			enemy.add_child(anim)
-			anim.get_node("AnimationPlayer").animation_finished.connect(func(): anim.queue_free())
+			anim.get_node("AnimationPlayer").animation_finished.connect(func(x): anim.queue_free())
 
 
 func _on_timer_timeout():
-	var enemies_attackable = enemies_inside.filter(is_attackable)
+	var enemies_attackable = enemies_inside.filter(func(enemy): return enemy.hp > 0 and is_attackable(enemy))
 	
 	if enemies_attackable.size() <= 0:
 		return

@@ -25,14 +25,16 @@ func _enter_tree():
 func init(player_number: int, current_case: Vector2i):
 	$HitBox.set_collision_layer_value(player_number, true)
 	$HitBox.set_collision_mask_value(player_number, true)
-	$Sprite2D.material = ShaderMaterial.new()
-	$Sprite2D.material.shader = shaders[player_number - 1]
+
 	
 	target_case = current_case
 	prev_case = current_case
 
 
 func _ready():
+	var player_index = NetworkState.get_player_index_by_id(self.get_multiplayer_authority())
+	$Sprite2D.material = ShaderMaterial.new()
+	$Sprite2D.material.shader = shaders[player_index]
 #	print("New Enemy", self)
 #	print("base values:")
 #	print("armor:",  armor)
@@ -48,7 +50,8 @@ func _ready():
 func _on_damage(amount):
 	hp -= amount
 	if hp <= 0:
-		queue_free()
+		$AnimationPlayer.play("Die" + get_direction())
+		$AnimationPlayer.animation_finished.connect(func(x): queue_free())
 
 
 func get_next_case() -> Vector2i:
@@ -63,7 +66,23 @@ func get_next_case() -> Vector2i:
 	return prev_case
 
 
+func get_direction() -> String:
+	var angle: float = Vector2(target_case - prev_case).angle()
+	
+	if angle >= PI / 4 and angle <= 3*PI / 4:
+		return "Down"
+	elif angle >= 3*PI / 4 or angle <= -3*PI / 4:
+		return "Left"
+	elif angle <= -PI / 4 and angle >= -3*PI / 4:
+		return "Up"
+	else:
+		return "Right"
+
+
 func _process(delta_time):
+	if hp <= 0:
+		return
+	
 	var target_pos: Vector2 = map.tilemap.map_to_local(target_case) * map.tilemap.scale
 	position = position.move_toward(target_pos, speed * delta_time)
 
@@ -71,3 +90,5 @@ func _process(delta_time):
 		var new_target_case = get_next_case()
 		prev_case = target_case
 		target_case = new_target_case
+		
+		$AnimationPlayer.play(get_direction())

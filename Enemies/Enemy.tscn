@@ -27,4 +27,6 @@ texture = ExtResource("2_qehd4")
 [node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
 replication_config = SubResource("SceneReplicationConfig_y6kew")
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
 [connection signal="damage" from="." to="." method="_on_damage"]
