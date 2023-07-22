@@ -1,7 +1,7 @@
-[gd_scene load_steps=12 format=3 uid="uid://bnkxdp2ge8uqa"]
+[gd_scene load_steps=12 format=3 uid="uid://dmvnynehrf0th"]
 
-[ext_resource type="PackedScene" uid="uid://bv2qtaqo8tdpm" path="res://Enemies/Enemy.tscn" id="1_ejelc"]
-[ext_resource type="Texture2D" uid="uid://cpnxduw0jrcni" path="res://Assets/Foozle_2DC0027_Spire_EnemyPack_1_Flying/Flying/Spritesheets/Clampbeetle.png" id="2_l0ysw"]
+[ext_resource type="PackedScene" uid="uid://bv2qtaqo8tdpm" path="res://Enemies/Enemy.tscn" id="1_lu6e6"]
+[ext_resource type="Texture2D" uid="uid://cxod4pvcfemvo" path="res://Assets/Foozle_2DC0028_Spire_EnemyPack_2_Ground/Ground/Spritesheets/Firebug.png" id="2_n4164"]
 
 [sub_resource type="Animation" id="Animation_tonhx"]
 resource_name = "DieDown"
@@ -15,7 +15,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [78, 90]
+"values": [66, 76]
 }
 
 [sub_resource type="Animation" id="Animation_pqf6b"]
@@ -30,34 +30,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [104, 116]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D:flip_h")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-
-[sub_resource type="Animation" id="Animation_avsub"]
-resource_name = "DieRight"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [104, 116]
+"values": [88, 98]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -72,6 +45,33 @@ tracks/1/keys = {
 "values": [true]
 }
 
+[sub_resource type="Animation" id="Animation_avsub"]
+resource_name = "DieRight"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [88, 98]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
 [sub_resource type="Animation" id="Animation_sshnm"]
 resource_name = "DieUp"
 tracks/0/type = "value"
@@ -84,7 +84,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [78, 90]
+"values": [77, 87]
 }
 
 [sub_resource type="Animation" id="Animation_cqsrr"]
@@ -100,7 +100,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [39, 43]
+"values": [33, 37]
 }
 
 [sub_resource type="Animation" id="Animation_eg2ru"]
@@ -116,7 +116,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [65, 69]
+"values": [55, 59]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -128,7 +128,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [false]
+"values": [true]
 }
 
 [sub_resource type="Animation" id="Animation_r63v5"]
@@ -144,7 +144,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [65, 69]
+"values": [55, 59]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -156,7 +156,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [true]
+"values": [false]
 }
 
 [sub_resource type="Animation" id="Animation_3ohgd"]
@@ -172,7 +172,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [52, 56]
+"values": [44, 48]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_gvdxy"]
@@ -187,16 +187,15 @@ _data = {
 "Up": SubResource("Animation_3ohgd")
 }
 
-[node name="Enemy" instance=ExtResource("1_ejelc")]
+[node name="Enemy" instance=ExtResource("1_lu6e6")]
 speed = 68
-fly = true
 
 [node name="Sprite2D" parent="." index="1"]
 scale = Vector2(0.781, 0.781)
-texture = ExtResource("2_l0ysw")
-hframes = 13
+texture = ExtResource("2_n4164")
+hframes = 11
 vframes = 9
-frame = 77
+frame = 33
 
 [node name="AnimationPlayer" parent="." index="3"]
 libraries = {
