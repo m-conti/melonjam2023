@@ -1,11 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://bv2qtaqo8tdpm"]
+[gd_scene load_steps=5 format=3 uid="uid://bv2qtaqo8tdpm"]
 
 [ext_resource type="Script" path="res://Enemies/Enemy.gd" id="1_8h1ux"]
 [ext_resource type="Texture2D" uid="uid://dhrndp70oikx6" path="res://Enemies/enemy.png" id="2_qehd4"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0hbpv"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_mjpbo"]
 
 [sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_y6kew"]
 properties/0/path = NodePath(".:position")
@@ -24,7 +22,6 @@ collision_mask = 0
 shape = SubResource("CircleShape2D_0hbpv")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-material = SubResource("ShaderMaterial_mjpbo")
 texture = ExtResource("2_qehd4")
 
 [node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
