@@ -5,5 +5,5 @@
 
 [node name="tower" instance=ExtResource("1_hup7y")]
 script = ExtResource("2_g047q")
-damage_radius = 2.0
-damage = 5
+damage_radius = 1000.0
+damage = 100

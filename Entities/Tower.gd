@@ -43,16 +43,16 @@ func _on_area_2d_area_exited(area):
 
 
 func _on_timer_timeout():
-	if enemies_inside.size() <= 0:
-		return
-	
 	var enemies_attackable = enemies_inside.filter(is_attackable)
 	
+	if enemies_attackable.size() <= 0:
+		return
+	
 	if attacking_type == EAttackingType.lowest_health:
-		enemies_attackable.sort_custom(func(x, y): return x.health <= y.health)
+		enemies_attackable.sort_custom(func(x, y): return x.hp <= y.hp)
 		on_enemy_hit(enemies_attackable[0])
 	elif attacking_type == EAttackingType.biggest_health:
-		enemies_attackable.sort_custom(func(x, y): return x.health >= y.health)
+		enemies_attackable.sort_custom(func(x, y): return x.hp >= y.hp)
 		on_enemy_hit(enemies_attackable[0])
 	elif attacking_type == EAttackingType.random:
 		on_enemy_hit(enemies_attackable.pick_random())

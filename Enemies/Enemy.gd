@@ -19,15 +19,16 @@ func init(path):
 
 
 func _ready():
-	print("New Enemy", self)
-	print("base values:")
-	print("armor:",  armor)
-	print("speed:", speed)
-	print("hp:", hp)
-	print("Modified values:")
-	print("armor:",  armor)
-	print("speed:", speed)
-	print("hp:", hp)
+#	print("New Enemy", self)
+#	print("base values:")
+#	print("armor:",  armor)
+#	print("speed:", speed)
+#	print("hp:", hp)
+#	print("Modified values:")
+#	print("armor:",  armor)
+#	print("speed:", speed)
+#	print("hp:", hp)
+	pass
 
 
 func _on_damage(amount):
