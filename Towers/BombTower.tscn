@@ -1,9 +1,29 @@
-[gd_scene load_steps=5 format=3 uid="uid://cgiry6ketavbj"]
+[gd_scene load_steps=7 format=3 uid="uid://cgiry6ketavbj"]
 
 [ext_resource type="PackedScene" uid="uid://cwrl1q31ff0xu" path="res://Entities/Tower.tscn" id="1_hup7y"]
 [ext_resource type="Script" path="res://Towers/BombTower.gd" id="2_g047q"]
 [ext_resource type="Texture2D" uid="uid://cfc7ee42s5xnj" path="res://Assets/Foozle_2DS0018_Spire_TowerPack_2/Towers bases/PNGs/Tower 04.png" id="3_jjxri"]
 [ext_resource type="Texture2D" uid="uid://fw05ifxo67s4" path="res://Assets/Foozle_2DS0018_Spire_TowerPack_2/Towers Weapons/Tower 04/PNGs/Tower 04 - Level 01 - Weapon.png" id="4_bggfr"]
+
+[sub_resource type="Animation" id="Animation_tomm8"]
+resource_name = "Attack"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("WeaponSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0, 16]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_iqd65"]
+_data = {
+"Attack": SubResource("Animation_tomm8")
+}
 
 [node name="tower" instance=ExtResource("1_hup7y")]
 script = ExtResource("2_g047q")
@@ -21,3 +41,8 @@ scale = Vector2(0.781, 0.781)
 texture = ExtResource("4_bggfr")
 offset = Vector2(2.08165e-12, -100)
 hframes = 17
+
+[node name="AnimationPlayer" parent="." index="4"]
+libraries = {
+"": SubResource("AnimationLibrary_iqd65")
+}

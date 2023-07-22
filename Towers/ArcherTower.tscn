@@ -1,9 +1,29 @@
-[gd_scene load_steps=5 format=3 uid="uid://cx5x7gr3i3jt8"]
+[gd_scene load_steps=7 format=3 uid="uid://cx5x7gr3i3jt8"]
 
 [ext_resource type="PackedScene" uid="uid://cwrl1q31ff0xu" path="res://Entities/Tower.tscn" id="1_6unlv"]
 [ext_resource type="Script" path="res://Towers/ArcherTower.gd" id="2_iq0s0"]
 [ext_resource type="Texture2D" uid="uid://bl3l6vqgx5vux" path="res://Assets/Foozle_2DS0017_Spire_TowerPack_1/Towers bases/PNGs/Tower 01.png" id="3_7ut1b"]
 [ext_resource type="Texture2D" uid="uid://di0r7dn023f2y" path="res://Assets/Foozle_2DS0017_Spire_TowerPack_1/Towers Weapons/Tower 01/Spritesheets/Tower 01 - Level 01 - Weapon.png" id="4_soyht"]
+
+[sub_resource type="Animation" id="Animation_pbih3"]
+resource_name = "Attack"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("WeaponSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0, 5]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_rm844"]
+_data = {
+"Attack": SubResource("Animation_pbih3")
+}
 
 [node name="tower" instance=ExtResource("1_6unlv")]
 script = ExtResource("2_iq0s0")
@@ -24,3 +44,8 @@ hframes = 6
 
 [node name="Area2D" parent="." index="2"]
 visible = false
+
+[node name="AnimationPlayer" parent="." index="4"]
+libraries = {
+"": SubResource("AnimationLibrary_rm844")
+}
