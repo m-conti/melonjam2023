@@ -1,13 +1,12 @@
-[gd_scene load_steps=19 format=3 uid="uid://dr5tn4o0pbc0o"]
+[gd_scene load_steps=18 format=3 uid="uid://dr5tn4o0pbc0o"]
 
 [ext_resource type="Script" path="res://HUD/HUD.gd" id="1_3yk4g"]
 [ext_resource type="Script" path="res://HUD/Buttons/MenuBar.gd" id="1_vcj4m"]
 [ext_resource type="ButtonGroup" uid="uid://pevhaqpsd8fq" path="res://HUD/Buttons/SubShop.tres" id="2_2hxj8"]
 [ext_resource type="Script" path="res://HUD/Buttons/TowerButton.gd" id="3_yfwwx"]
 [ext_resource type="PackedScene" uid="uid://cnkovvaqbfwqo" path="res://Towers/FireTower.tscn" id="4_n7tev"]
-[ext_resource type="PackedScene" path="res://Towers/IceTower.tscn" id="5_tdlmk"]
-[ext_resource type="PackedScene" path="res://Towers/BombTower.tscn" id="6_158jl"]
-[ext_resource type="Texture2D" uid="uid://dqoso3dfi3lah" path="res://Towers/ArcherTower.jpg" id="7_382pc"]
+[ext_resource type="PackedScene" uid="uid://cuhygbww0otik" path="res://Towers/IceTower.tscn" id="5_tdlmk"]
+[ext_resource type="PackedScene" uid="uid://cgiry6ketavbj" path="res://Towers/BombTower.tscn" id="6_158jl"]
 [ext_resource type="PackedScene" uid="uid://cx5x7gr3i3jt8" path="res://Towers/ArcherTower.tscn" id="7_pdln5"]
 [ext_resource type="Script" path="res://HUD/Buttons/SpawnerButton.gd" id="8_ok5js"]
 [ext_resource type="PackedScene" uid="uid://cij1o64untoon" path="res://Entities/Spawner.tscn" id="9_f0wej"]
@@ -103,7 +102,6 @@ custom_minimum_size = Vector2(100, 2.08165e-12)
 layout_mode = 2
 size_flags_vertical = 3
 text = "Archer Tower"
-icon = ExtResource("7_382pc")
 icon_alignment = 1
 script = ExtResource("3_yfwwx")
 instance = ExtResource("7_pdln5")

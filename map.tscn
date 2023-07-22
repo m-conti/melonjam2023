@@ -3,19 +3,15 @@
 [ext_resource type="Script" path="res://Map.gd" id="1_vd1cq"]
 [ext_resource type="PackedScene" uid="uid://dr5tn4o0pbc0o" path="res://HUD/HUD.tscn" id="2_hm6il"]
 
-[sub_resource type="TileSet" id="TileSet_yjbcu"]
-tile_size = Vector2i(100, 100)
-
 [sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_dbbrf"]
+
+[sub_resource type="TileSet" id="TileSet_8ovdc"]
+tile_size = Vector2i(100, 100)
 
 [node name="1" type="Node2D"]
 script = ExtResource("1_vd1cq")
 
 [node name="HUD" parent="." instance=ExtResource("2_hm6il")]
-
-[node name="TileMap" type="TileMap" parent="."]
-tile_set = SubResource("TileSet_yjbcu")
-format = 2
 
 [node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
 replication_config = SubResource("SceneReplicationConfig_dbbrf")
@@ -25,3 +21,8 @@ _spawnable_scenes = PackedStringArray("res://Entities/Tower.tscn", "res://Entiti
 spawn_path = NodePath("../SyncContainer")
 
 [node name="SyncContainer" type="Node2D" parent="."]
+
+[node name="TileMap" type="TileMap" parent="."]
+position = Vector2(124, 76)
+tile_set = SubResource("TileSet_8ovdc")
+format = 2

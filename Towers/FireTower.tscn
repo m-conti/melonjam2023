@@ -1,5 +1,19 @@
-[gd_scene load_steps=2 format=3 uid="uid://cnkovvaqbfwqo"]
+[gd_scene load_steps=4 format=3 uid="uid://cnkovvaqbfwqo"]
 
 [ext_resource type="PackedScene" uid="uid://cwrl1q31ff0xu" path="res://Entities/Tower.tscn" id="1_46fn7"]
+[ext_resource type="Texture2D" uid="uid://ca8mg1u6hs2xe" path="res://Assets/Foozle_2DS0020_Spire_TowerPack_4/Towers bases/PNGs/Tower 07.png" id="2_evkxl"]
+[ext_resource type="Texture2D" uid="uid://hho4lpxw5bd1" path="res://Assets/Foozle_2DS0020_Spire_TowerPack_4/Towers Weapons/Tower 07/Spritesheets/Tower 07 - Level 01 - Weapon.png" id="3_msywa"]
 
 [node name="tower" instance=ExtResource("1_46fn7")]
+
+[node name="BaseSprite" parent="." index="0"]
+scale = Vector2(1.563, 1.389)
+texture = ExtResource("2_evkxl")
+offset = Vector2(2.08165e-12, -32)
+hframes = 3
+
+[node name="WeaponSprite" parent="." index="1"]
+scale = Vector2(1.563, 1.563)
+texture = ExtResource("3_msywa")
+offset = Vector2(2.08165e-12, -37)
+hframes = 6
