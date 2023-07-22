@@ -22,6 +22,9 @@ enum EAttackingType
 	all
 }
 
+func _enter_tree():
+	set_multiplayer_authority(get_parent().get_multiplayer_authority())
+
 
 func _on_area_2d_area_entered(area):
 	var enemy = area.get_parent()

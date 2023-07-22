@@ -14,6 +14,9 @@ var prev_case: Vector2i
 
 signal damage(amount)
 
+func _enter_tree():
+	set_multiplayer_authority(get_parent().get_multiplayer_authority())
+
 
 func init(player_number: int, current_case: Vector2i):
 	$HitBox.set_collision_layer_value(player_number, true)

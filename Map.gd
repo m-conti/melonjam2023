@@ -16,13 +16,16 @@ func _init_grid():
 		for y in height:
 			grid[x].append(null)
 
-func _ready():
+func _enter_tree():
+	print("enter_tree")
 	set_multiplayer_authority(self.name.to_int())
+
+func _ready():
+	print("ready")
 	set_visibility(is_multiplayer_authority())
 	if not is_multiplayer_authority(): return
 	$HUD/Shop/BoxContainer/Towers.show()
 	var spawner: Spawner = load("res://Entities/Spawner.tscn").instantiate()
-	spawner.set_multiplayer_authority(get_multiplayer_authority())
 	spawner.place_on_map(Vector2i(3, 3))
 	add_at_pos(spawner, Vector2i(3, 3))
 
