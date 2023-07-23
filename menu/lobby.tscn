@@ -85,10 +85,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -138.5
-offset_top = -83.5
-offset_right = 138.5
-offset_bottom = 83.5
+offset_left = -140.0
+offset_top = -460.0
+offset_right = 137.0
+offset_bottom = -293.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 2
@@ -166,6 +166,117 @@ size_flags_vertical = 0
 theme_override_colors/font_color = Color(0.820312, 0.291595, 0.291595, 1)
 
 [node name="ErrorDialog" type="AcceptDialog" parent="."]
+
+[node name="Lore" type="PanelContainer" parent="."]
+layout_mode = 0
+offset_left = 452.0
+offset_top = 671.0
+offset_right = 2065.0
+offset_bottom = 1093.0
+
+[node name="MarginContainer" type="MarginContainer" parent="Lore"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="Label0" type="Label" parent="Lore/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 30
+text = "Welcome deer programmer !
+Come with your friends to play and enjoy.
+
+Remember you can use the input [1] and [3] to switch between worlds and [Right Click] to cancel the purchase
+/!\\ Be careful you can corrupt your own side of the board /!\\
+
+[Space to continue]"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Label1" type="Label" parent="Lore/MarginContainer"]
+visible = false
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 30
+text = "Welcome, brave soul, to the digital realm of tower defence mayhem! You are no ordinary programmer; you are an all-powerful, code-crunching, data-devouring AI program dwelling within the heart of this virtual citadel. But alas, things have taken a tumultuous turn!
+
+[Space to continue]"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Label2" type="Label" parent="Lore/MarginContainer"]
+visible = false
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 30
+text = "Picture this: the management, in a moment of questionable judgement, entrusted the crucial security coding to some wide-eyed interns. As you might have guessed, this decision was about as sound as a kazoo in a symphony orchestra. Flaws started popping up like popcorn in a microwave!
+
+[Space to continue]"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Label3" type="Label" parent="Lore/MarginContainer"]
+visible = false
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 30
+text = "Now, your once harmonious world is besieged by mischievous intruders who seek to exploit the very fabric of your existence. But fear not, for you possess both an iron will and a stroke of luck! To defend yourself and preserve the sanctity of your digital sanctuary, you must annihilate these ne'er-do-wells.
+
+[Space to continue]"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Label4" type="Label" parent="Lore/MarginContainer"]
+visible = false
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 30
+text = "What's the twist, you ask? Well, brace yourself for this thrilling revelation: you can harness the very system they wish to corrupt in order to turn the tables on them! As these malevolent monsters linger within your virtual confines, they leave behind a trail of corruptive essence. Don't let them revel in this malevolence for long, though, or their influence will spread like a wildfire across your domain.
+
+[Space to continue]"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Label5" type="Label" parent="Lore/MarginContainer"]
+visible = false
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 30
+text = "But fear not, for you have an arsenal of formidable towers at your disposal. Utilize them wisely to fend off these marauding monsters and protect your virtual turf. With each beast you obliterate, you gain a shiny pile of gold, which you can use to erect even mightier towers.
+
+[Space to continue]"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Label6" type="Label" parent="Lore/MarginContainer"]
+visible = false
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 30
+text = "But remember, there is a delicate balance at play here. The longer these vile creatures frolic about unscathed, the more corruption they bestow upon your once-pristine realm. If a player succumbs to corruption entirely, it's game over for them. So be swift, be strategic, and be relentless in your mission to safeguard your world.
+
+[Space to continue]"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Label7" type="Label" parent="Lore/MarginContainer"]
+visible = false
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 30
+text = "So, embark on this epic journey, oh mighty coder! Unleash your programming prowess and strategic brilliance upon these meddling miscreants. Defend, attack, and witness the awe-inspiring clash of code and chaos in this tower defence extravaganza! The fate of your virtual utopia hangs in the balance, and only you can determine its destiny. Go forth, and let the battle for digital dominance begin!"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
 
 [connection signal="pressed" from="Players/Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="Players/FindPublicIP" to="." method="_on_find_public_ip_pressed"]

@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://vgfy36l2aix8"]
+[gd_scene load_steps=4 format=3 uid="uid://vgfy36l2aix8"]
 
 [ext_resource type="Texture2D" uid="uid://cxod4pvcfemvo" path="res://Enemies/Enemies/Firebug.png" id="1_r68yc"]
+[ext_resource type="Script" path="res://HUD/MonsterInfo.gd" id="1_v6ui5"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_odhra"]
 atlas = ExtResource("1_r68yc")
@@ -9,6 +10,7 @@ region = Rect2(2.08165e-12, 2.08165e-12, 128, 64)
 [node name="PanelContainer" type="PanelContainer"]
 offset_right = 91.0
 offset_bottom = 64.0
+script = ExtResource("1_v6ui5")
 
 [node name="MonsterInfo" type="HBoxContainer" parent="."]
 layout_mode = 2

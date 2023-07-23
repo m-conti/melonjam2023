@@ -43,10 +43,12 @@ func _on_map_change(map: Map):
 		$Shop/BoxContainer/Towers.hide()
 
 func _on_gold_changed(value: int):
-	$TopRightContainer/Container/PlayerData/Gold.text = "Gold : " + str(value)
+	$TopRightContainer/Container/PanelContainer/MarginContainer/PlayerData/Gold.text = "Gold : " + str(value)
+	pass
 
 func _on_corruption_changed(value: int):
-	$TopRightContainer/Container/PlayerData/Corruption.text = "Corruption : " + str(value)
+	$TopRightContainer/Container/PanelContainer/MarginContainer/PlayerData/Corruption.text = "Corruption : " + str(value)
+	pass
 
 func _on_player_die():
 	self.hide()
@@ -64,6 +66,7 @@ func _on_wave_changed(new_wave: Dictionary):
 		new_mob_info.get_node("MonsterInfo/MarginContainer/Label").text = str(new_wave[monster]) + " x"
 		
 		var monster_name: String = monster.right(-22).left(-5)
+		new_mob_info.editor_description = monster_name
 		var texture: AtlasTexture = AtlasTexture.new()
 		texture.region = Rect2(0, 0, mobs[monster_name][1], mobs[monster_name][2])
 		texture.atlas = mobs[monster_name][0]

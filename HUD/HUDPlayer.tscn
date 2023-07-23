@@ -193,14 +193,28 @@ theme_override_constants/margin_bottom = 24
 [node name="Container" type="VBoxContainer" parent="TopRightContainer"]
 layout_mode = 2
 
-[node name="PlayerData" type="VBoxContainer" parent="TopRightContainer/Container"]
+[node name="PanelContainer" type="PanelContainer" parent="TopRightContainer/Container"]
 layout_mode = 2
 
-[node name="Gold" type="Label" parent="TopRightContainer/Container/PlayerData"]
+[node name="MarginContainer" type="MarginContainer" parent="TopRightContainer/Container/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="PlayerData" type="VBoxContainer" parent="TopRightContainer/Container/PanelContainer/MarginContainer"]
 layout_mode = 2
 
-[node name="Corruption" type="Label" parent="TopRightContainer/Container/PlayerData"]
+[node name="Gold" type="Label" parent="TopRightContainer/Container/PanelContainer/MarginContainer/PlayerData"]
 layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Gold : 0"
+
+[node name="Corruption" type="Label" parent="TopRightContainer/Container/PanelContainer/MarginContainer/PlayerData"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Corruption : 0"
 
 [node name="NextWave" type="VBoxContainer" parent="TopRightContainer/Container"]
 layout_mode = 2

@@ -21,6 +21,7 @@ func _on_host_pressed():
 		return
 
 	$Connect.hide()
+	$Lore.hide()
 	$Players.show()
 	$Connect/ErrorLabel.text = ""
 
@@ -42,6 +43,7 @@ func _on_join_pressed():
 
 func _on_connection_success():
 	$Connect.hide()
+	$Lore.hide()
 	$Players.show()
 
 func _on_start_pressed():
@@ -69,3 +71,12 @@ func refresh_lobby():
 		else:
 			$Players/List.add_item(players[p])
 	$Players/Start.disabled = not multiplayer.is_server()
+
+var current_display_idx: int = 0
+func _input(event):
+	if current_display_idx == 7: return
+	
+	if Input.is_key_pressed(KEY_SPACE) and not event.is_echo():
+		$Lore/MarginContainer.get_node("Label" + str(current_display_idx)).hide()
+		current_display_idx += 1
+		$Lore/MarginContainer.get_node("Label" + str(current_display_idx)).show()
