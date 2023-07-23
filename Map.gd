@@ -14,6 +14,7 @@ var nb_path_case: int
 
 var rotation_clockwise: bool = false
 
+var destroy_anim: PackedScene = load("res://Towers/DestroyAnimation.tscn")
 
 func get_first_path() -> Vector2i:
 	for x in width:
@@ -104,8 +105,17 @@ func add_at_pos_by_ressource(path: String, pos: Vector2i):
 
 @rpc("any_peer", "call_local")
 func destoy_at_pos(pos: Vector2i):
+	if not is_in_grid(pos): return
+	
 	var object = grid[pos.x][pos.y]
+	
+	var anim: Sprite2D = destroy_anim.instantiate()
+	anim.get_node("Animation").animation_finished.connect(func(x): anim.queue_free())
+	$SyncContainer.add_child(anim)
+	anim.position = tilemap.map_to_local(pos) * tilemap.scale
+	
 	if not object is Tower: return
+	
 	object.queue_free()
 	grid[pos.x][pos.y] = null
 

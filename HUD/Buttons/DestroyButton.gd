@@ -22,9 +22,6 @@ func _input(event):
 	elif event.button_index == MOUSE_BUTTON_RIGHT:
 		is_active = false
 
-func can_be_placed(pos: Vector2i):
-	return map.is_in_grid(pos) and map.grid[pos.x][pos.y] != null and map.grid[pos.x][pos.y] is Tower
-
 func _draw():
 	if is_active and mouse_pos != null:
 		draw_circle(mouse_pos - self.global_position, 10, Color.CRIMSON)
