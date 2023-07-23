@@ -14,7 +14,7 @@ signal start
 signal stop
 signal map_changed(Map)
 
-var game:
+var game: Game:
 	get: return get_tree().root.get_node("game")
 
 # Called when the node enters the scene tree for the first time.
@@ -33,6 +33,18 @@ func is_game_strated():
 func start_game():
 	self.status = EGameStatus.STARTED
 	self.start.emit()
+
+func check_end():
+	var maps = game.get_node("MapsContainer").get_children()
+	var deads = 0
+	for map in maps:
+		if map.is_dead: deads += 1
+	if deads >= maps.size() - 1:
+		end_game()
+
+func end_game():
+	print("END GAME")
+	pass
 
 func disconnect_game():
 	if is_game_strated():

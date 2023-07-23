@@ -20,6 +20,8 @@ func _ready():
 	GameState.game.spawn_wave.connect(_on_wave_changed)
 	PlayerState.corruption_changed.connect(_on_corruption_changed)
 	PlayerState.gold_changed.connect(_on_gold_changed)
+	PlayerState.die.connect(_on_player_die)
+	PlayerState.player_die.connect(_on_other_player_die)
 	self.hide()
 
 
@@ -31,6 +33,10 @@ func _on_start_game():
 	self.show()
 
 func _on_map_change(map: Map):
+	if map.is_dead:
+		$Shop.hide()
+		return
+	$Shop.show()
 	if map.is_multiplayer_authority():
 		$Shop/BoxContainer/Towers.show()
 	else:
@@ -41,6 +47,13 @@ func _on_gold_changed(value: int):
 
 func _on_corruption_changed(value: int):
 	$TopRightContainer/Container/PlayerData/Corruption.text = "Corruption : " + str(value)
+
+func _on_player_die():
+	self.hide()
+
+func _on_other_player_die(id: int):
+	if id == GameState.game.displayed_map.get_multiplayer_authority():
+		$Shop.hide()
 
 func _on_wave_changed(new_wave: Dictionary):
 	for child in $TopRightContainer/Container/NextWave.get_children():

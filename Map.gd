@@ -7,6 +7,7 @@ class_name Map
 @onready var height: int = tilemap.get_used_rect().size.y
 
 var player_id: int
+var is_dead = false
 
 var grid: Array = []
 var nb_path_case: int
@@ -83,6 +84,7 @@ func _ready():
 	print(tilemap.get_used_rect())
 	_init_grid()
 	set_visibility(is_multiplayer_authority())
+	PlayerState.player_die.connect(_on_player_die)
 	if not is_multiplayer_authority(): return
 	add_at_pos(load("res://Entities/Spawner.tscn"), Vector2i(3, 3))
 
@@ -131,3 +133,10 @@ func set_visibility(value: bool):
 	else:
 		hide()
 		$HUD.hide()
+
+func _on_player_die(id: int):
+	if get_multiplayer_authority() == id:
+		$SyncContainer.queue_free()
+		is_dead = true
+		if multiplayer.is_server():
+			GameState.check_end()
