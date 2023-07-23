@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://l7ft4434eda7"]
+[gd_scene load_steps=20 format=3 uid="uid://l7ft4434eda7"]
 
 [ext_resource type="Script" path="res://HUD/HUDPlayer.gd" id="1_udhey"]
 [ext_resource type="Script" path="res://HUD/Buttons/MenuBar.gd" id="2_fb018"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://cgiry6ketavbj" path="res://Towers/BombTower.tscn" id="7_r5s8x"]
 [ext_resource type="PackedScene" uid="uid://cx5x7gr3i3jt8" path="res://Towers/ArcherTower.tscn" id="8_4b61l"]
 [ext_resource type="Script" path="res://HUD/Buttons/SpawnerButton.gd" id="9_jqeo6"]
+[ext_resource type="Script" path="res://HUD/Buttons/CorruptButton.gd" id="9_vvmi7"]
 [ext_resource type="PackedScene" uid="uid://cij1o64untoon" path="res://Entities/Spawner.tscn" id="10_xjqej"]
 [ext_resource type="Script" path="res://HUD/Buttons/ArmoredButton.gd" id="11_nt6n7"]
 [ext_resource type="Script" path="res://HUD/Buttons/DestroyButton.gd" id="12_msho1"]
@@ -123,6 +124,12 @@ anchors_preset = -1
 anchor_bottom = 1.0
 offset_right = -10.0
 grow_horizontal = 0
+
+[node name="CorruptButton" type="Button" parent="Shop/BoxContainer/Boost/BoxContainer"]
+layout_mode = 2
+text = "Corrupt Map"
+script = ExtResource("9_vvmi7")
+cost = 1
 
 [node name="Spawner" type="Button" parent="Shop/BoxContainer/Boost/BoxContainer"]
 custom_minimum_size = Vector2(100, 2.08165e-12)
