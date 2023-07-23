@@ -41,10 +41,15 @@ func _ready():
 func _on_start_game():
 	self.remove_pages()
 	self.start_game()
+	$CorruptionGain.timeout.connect(_gain_corruption)
+	$CorruptionGain.start()
 
 func start_game():
 	if multiplayer.is_server(): set_maps()
 
+func _on_stop_game():
+	$CorruptionGain.stop()
+	pass
 
 func set_maps():
 	for player_id in NetworkState.get_player_keys():
@@ -56,6 +61,14 @@ func set_maps():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
+
+func _gain_corruption():
+	var mobs = get_tree().get_nodes_in_group("enemies")
+	var corruption: int = 0
+	for mob in mobs:
+		if not mob.is_in_group("enemies_of_1"):
+			corruption += mob.corruption
+	PlayerState.add_corruption(corruption)
 
 func remove_pages():
 	$pages.remove_child($pages/lobby)

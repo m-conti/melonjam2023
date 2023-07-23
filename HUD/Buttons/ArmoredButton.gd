@@ -5,8 +5,9 @@ class_name ArmoredButton
 @export var armor_mod: int = 10
 @export var speed_mod: float = 0.9
 
-func _on_pressed():
+func __on_pressed():
 	for child in map.get_children():
 		if child is Enemy:
 			ArmorModifier.new(child, duration, [armor_mod])
 			SpeedModifier.new(child, duration, [speed_mod])
+	buy()

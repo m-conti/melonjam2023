@@ -20,3 +20,6 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="HUD" parent="." instance=ExtResource("3_ngnij")]
+
+[node name="CorruptionGain" type="Timer" parent="."]
+wait_time = 5.0

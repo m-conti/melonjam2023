@@ -11,6 +11,7 @@ enum EGameStatus {
 var status: EGameStatus = EGameStatus.WAITING
 
 signal start
+signal stop
 signal map_changed(Map)
 
 var game:
@@ -34,4 +35,6 @@ func start_game():
 	self.start.emit()
 
 func disconnect_game():
+	if is_game_strated():
+		self.stop.emit()
 	self.status = EGameStatus.DISCONNECTED
