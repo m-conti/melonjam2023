@@ -28,7 +28,7 @@ _data = {
 
 [node name="tower" instance=ExtResource("1_6unlv")]
 script = ExtResource("2_iq0s0")
-damage = 7
+damage = 10000
 attack_cooldown = 0.4
 damage_animation = ExtResource("3_8v1a2")
 

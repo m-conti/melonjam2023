@@ -47,10 +47,10 @@ func _on_area_2d_area_exited(area):
 func _on_animation_finished(enemies: Array):
 	for enemy in enemies:
 		if is_instance_valid(enemy):
-			on_enemy_hit(enemy)
 			var anim: Sprite2D = damage_animation.instantiate()
 			enemy.add_child(anim)
 			anim.get_node("AnimationPlayer").animation_finished.connect(func(x): anim.queue_free())
+			on_enemy_hit(enemy)
 
 
 func _on_timer_timeout():
@@ -80,7 +80,7 @@ func is_attackable(enemy: Enemy) -> bool:
 
 
 func anime_and_attack_enemies(enemies: Array):
-	$AnimationPlayer.play("Attack")
+	$AnimationPlayer.play("Attack", -1, 1.5 / attack_cooldown)
 	$AnimationPlayer.animation_finished.connect(func(x): _on_animation_finished(enemies), CONNECT_ONE_SHOT)
 
 
