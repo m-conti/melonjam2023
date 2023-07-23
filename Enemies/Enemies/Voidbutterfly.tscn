@@ -188,7 +188,8 @@ _data = {
 }
 
 [node name="Enemy" instance=ExtResource("1_fwn0n")]
-speed = 68
+speed = 100
+hp = 200
 fly = true
 
 [node name="Sprite2D" parent="." index="1"]

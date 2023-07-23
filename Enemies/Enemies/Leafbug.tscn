@@ -1,7 +1,7 @@
 [gd_scene load_steps=12 format=3 uid="uid://bwg7at8jcugxq"]
 
 [ext_resource type="PackedScene" uid="uid://bv2qtaqo8tdpm" path="res://Enemies/Enemy.tscn" id="1_xpxo6"]
-[ext_resource type="Texture2D" uid="uid://72fsuaxcv57v" path="res://Assets/Foozle_2DC0028_Spire_EnemyPack_2_Ground/Ground/Spritesheets/Leafbug.png" id="2_ly3wo"]
+[ext_resource type="Texture2D" uid="uid://72fsuaxcv57v" path="res://Enemies/Enemies/Leafbug.png" id="2_ly3wo"]
 
 [sub_resource type="Animation" id="Animation_tonhx"]
 resource_name = "DieDown"
@@ -188,7 +188,8 @@ _data = {
 }
 
 [node name="Enemy" instance=ExtResource("1_xpxo6")]
-speed = 68
+speed = 40
+hp = 210
 
 [node name="Sprite2D" parent="." index="1"]
 scale = Vector2(0.781, 0.781)

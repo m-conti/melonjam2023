@@ -1,7 +1,7 @@
 [gd_scene load_steps=12 format=3 uid="uid://c8i2weqrluftc"]
 
 [ext_resource type="PackedScene" uid="uid://bv2qtaqo8tdpm" path="res://Enemies/Enemy.tscn" id="1_4elxn"]
-[ext_resource type="Texture2D" uid="uid://ovc5vnt4mc1a" path="res://Assets/Foozle_2DC0027_Spire_EnemyPack_1_Flying/Flying/Spritesheets/Firewasp.png" id="2_lgr2c"]
+[ext_resource type="Texture2D" uid="uid://ovc5vnt4mc1a" path="res://Enemies/Enemies/Firewasp.png" id="2_lgr2c"]
 
 [sub_resource type="Animation" id="Animation_tonhx"]
 resource_name = "DieDown"
@@ -188,7 +188,8 @@ _data = {
 }
 
 [node name="Enemy" instance=ExtResource("1_4elxn")]
-speed = 68
+speed = 310
+hp = 60
 fly = true
 
 [node name="Sprite2D" parent="." index="1"]

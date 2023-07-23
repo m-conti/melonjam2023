@@ -1,7 +1,7 @@
 [gd_scene load_steps=12 format=3 uid="uid://cglrb17mlqr7r"]
 
 [ext_resource type="PackedScene" uid="uid://bv2qtaqo8tdpm" path="res://Enemies/Enemy.tscn" id="1_s436u"]
-[ext_resource type="Texture2D" uid="uid://c2igs8304fje8" path="res://Assets/Foozle_2DC0027_Spire_EnemyPack_1_Flying/Flying/Spritesheets/Flying Locust.png" id="2_4etm8"]
+[ext_resource type="Texture2D" uid="uid://c2igs8304fje8" path="res://Enemies/Enemies/Flying Locust.png" id="2_4etm8"]
 
 [sub_resource type="Animation" id="Animation_tonhx"]
 resource_name = "DieDown"
@@ -188,7 +188,8 @@ _data = {
 }
 
 [node name="Enemy" instance=ExtResource("1_s436u")]
-speed = 68
+speed = 140
+hp = 130
 fly = true
 
 [node name="Sprite2D" parent="." index="1"]

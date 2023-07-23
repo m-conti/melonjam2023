@@ -149,4 +149,5 @@ _spawnable_scenes = PackedStringArray("res://Entities/Spawner.tscn", "res://Towe
 spawn_path = NodePath("../SyncContainer")
 
 [node name="SyncContainer" type="Node2D" parent="."]
+y_sort_enabled = true
 script = ExtResource("3_xol0r")
