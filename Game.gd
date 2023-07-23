@@ -55,7 +55,7 @@ func _on_start_game():
 		self.emit_spawn.rpc(server_create_wave())
 
 
-func server_create_wave() -> Dictionary:
+func server_create_wave() -> Array:
 	var this_next_wave: Dictionary = next_wave
 	next_wave = {}
 	
@@ -69,21 +69,24 @@ func server_create_wave() -> Dictionary:
 	
 	wave_step += 1
 	
-	spawn_wave.emit(next_wave)
-	return this_next_wave
+	return [this_next_wave, next_wave]
 
 
 @rpc("authority", "call_local")
-func emit_spawn(wave: Dictionary):
-	for enemy in wave:
-		mobs_to_spawn[enemy] = mobs_to_spawn.get(enemy, 0) + wave[enemy]
+func emit_spawn(next_waves: Array):
+	for enemy in next_waves[0]:
+		mobs_to_spawn[enemy] = mobs_to_spawn.get(enemy, 0) + next_waves[0][enemy]
+	spawn_wave.emit(next_waves[1])
+
 
 func start_game():
 	if multiplayer.is_server(): set_maps()
 
+
 func _on_stop_game():
 	$CorruptionGain.stop()
 	pass
+
 
 func set_maps():
 	for player_id in NetworkState.get_player_keys():
@@ -92,9 +95,11 @@ func set_maps():
 		print("Server set_map: %d" % player_id)
 		$MapsContainer.add_child(map)
 
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
+
 
 func _gain_corruption():
 	var mobs = get_tree().get_nodes_in_group("enemies")
