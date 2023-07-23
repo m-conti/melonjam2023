@@ -157,24 +157,27 @@ texture_progress = SubResource("GradientTexture1D_aocsf")
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -40.0
-offset_bottom = 50.0
+offset_left = -49.0
+offset_bottom = 98.0
 grow_horizontal = 0
 theme_override_constants/margin_left = 24
 theme_override_constants/margin_top = 24
 theme_override_constants/margin_right = 24
 theme_override_constants/margin_bottom = 24
 
-[node name="PlayerData" type="VBoxContainer" parent="TopRightContainer"]
+[node name="Container" type="VBoxContainer" parent="TopRightContainer"]
 layout_mode = 2
 
-[node name="Gold" type="Label" parent="TopRightContainer/PlayerData"]
+[node name="PlayerData" type="VBoxContainer" parent="TopRightContainer/Container"]
 layout_mode = 2
 
-[node name="Corruption" type="Label" parent="TopRightContainer/PlayerData"]
+[node name="Gold" type="Label" parent="TopRightContainer/Container/PlayerData"]
 layout_mode = 2
 
-[node name="NextWave" type="VBoxContainer" parent="TopRightContainer"]
+[node name="Corruption" type="Label" parent="TopRightContainer/Container/PlayerData"]
+layout_mode = 2
+
+[node name="NextWave" type="VBoxContainer" parent="TopRightContainer/Container"]
 layout_mode = 2
 
 [connection signal="toggled" from="Shop" to="Shop" method="_on_toggled"]

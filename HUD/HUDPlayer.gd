@@ -37,13 +37,13 @@ func _on_map_change(map: Map):
 		$Shop/BoxContainer/Towers.hide()
 
 func _on_gold_changed(value: int):
-	$TopRightContainer/PlayerData/Gold.text = "Gold : " + str(value)
+	$TopRightContainer/Container/PlayerData/Gold.text = "Gold : " + str(value)
 
 func _on_corruption_changed(value: int):
-	$TopRightContainer/PlayerData/Corruption.text = "Corruption : " + str(value)
+	$TopRightContainer/Container/PlayerData/Corruption.text = "Corruption : " + str(value)
 
 func _on_wave_changed(new_wave: Dictionary):
-	for child in $TopRightContainer/NextWave.get_children():
+	for child in $TopRightContainer/Container/NextWave.get_children():
 		child.queue_free()
 	
 	for monster in new_wave:
@@ -58,4 +58,4 @@ func _on_wave_changed(new_wave: Dictionary):
 		new_mob_info.get_node("MonsterInfo/TextureRect").expand_mode = 1
 		new_mob_info.get_node("MonsterInfo/TextureRect").custom_minimum_size = Vector2.ONE * 64.
 		
-		$TopRightContainer/NextWave.add_child(new_mob_info)
+		$TopRightContainer/Container/NextWave.add_child(new_mob_info)
