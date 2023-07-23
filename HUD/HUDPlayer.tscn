@@ -85,30 +85,30 @@ size_flags_vertical = 3
 text = "Fire Tower"
 script = ExtResource("4_vaerj")
 instance = ExtResource("5_3oa8o")
-cost = 300
+cost = 400
 
 [node name="Ice Tower" type="Button" parent="Shop/BoxContainer/Towers/BoxContainer"]
-editor_description = "Slow down enemy halving their speed during 2 seconds"
+editor_description = "Slow down enemy"
 custom_minimum_size = Vector2(100, 2.08165e-12)
 layout_mode = 2
 size_flags_vertical = 3
 text = "Ice Tower"
 script = ExtResource("4_vaerj")
 instance = ExtResource("6_blmo6")
-cost = 250
+cost = 600
 
 [node name="Bomb Tower" type="Button" parent="Shop/BoxContainer/Towers/BoxContainer"]
-editor_description = "Damage ground enemy in zone dealing them 2 damage every second"
+editor_description = "Damage ground enemy in zone, with a slow reload"
 custom_minimum_size = Vector2(100, 2.08165e-12)
 layout_mode = 2
 size_flags_vertical = 3
 text = "Bomb Tower"
 script = ExtResource("4_vaerj")
 instance = ExtResource("7_r5s8x")
-cost = 500
+cost = 800
 
 [node name="Archer Tower" type="Button" parent="Shop/BoxContainer/Towers/BoxContainer"]
-editor_description = "Deal 2 damage every 0.2 second"
+editor_description = "Deal area around the tower"
 custom_minimum_size = Vector2(100, 2.08165e-12)
 layout_mode = 2
 size_flags_vertical = 3
@@ -138,7 +138,7 @@ editor_description = "Corrupt the board of the chosen opponent in order to destr
 layout_mode = 2
 text = "Corrupt Map"
 script = ExtResource("9_vvmi7")
-cost = 1
+cost = 300
 unit_cost = "corruption"
 
 [node name="Spawner" type="Button" parent="Shop/BoxContainer/Boost/BoxContainer"]
@@ -149,7 +149,7 @@ size_flags_vertical = 3
 text = "Spawner"
 script = ExtResource("9_jqeo6")
 instance = ExtResource("10_xjqej")
-cost = 1000
+cost = 800
 unit_cost = "corruption"
 
 [node name="Armored" type="Button" parent="Shop/BoxContainer/Boost/BoxContainer"]

@@ -190,6 +190,7 @@ _data = {
 [node name="Enemy" instance=ExtResource("1_daakc")]
 speed = 70
 hp = 150
+gold = 20
 
 [node name="Sprite2D" parent="." index="1"]
 scale = Vector2(0.781, 0.781)
