@@ -56,12 +56,28 @@ func _on_damage(amount):
 
 func get_next_case() -> Vector2i:
 	var neighbours = [Vector2i.RIGHT, Vector2i.DOWN, Vector2i.LEFT, Vector2i.UP]
-	neighbours.shuffle()
+	
+	var current_value = map.grid[target_case.x][target_case.y]
+	
+	var next_value: int
+	if map.rotation_clockwise:
+		if typeof(current_value) != TYPE_INT:
+			next_value = -1
+		elif current_value == 1:
+			next_value = map.nb_path_case
+		else:
+			next_value = current_value - 1
+	else:
+		next_value = (current_value % map.nb_path_case) + 1 if typeof(current_value) == TYPE_INT else -1
 	
 	for neighbour in neighbours:
 		var new_target = target_case + neighbour
-		if map.is_in_grid(new_target) and map.grid[new_target.x][new_target.y] == null and new_target != prev_case:
+		if not (map.is_in_grid(new_target) and typeof(map.grid[new_target.x][new_target.y]) == TYPE_INT):
+			continue
+		if next_value < 0 or (next_value >= 0 and map.grid[new_target.x][new_target.y] == next_value):
 			return new_target
+	
+	print(next_value)
 	
 	return prev_case
 
