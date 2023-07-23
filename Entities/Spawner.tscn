@@ -1,19 +1,35 @@
-[gd_scene load_steps=5 format=3 uid="uid://cij1o64untoon"]
+[gd_scene load_steps=6 format=3 uid="uid://cij1o64untoon"]
 
 [ext_resource type="Script" path="res://Entities/Spawner.gd" id="1_6oa2b"]
-
-[sub_resource type="Gradient" id="Gradient_chxqw"]
-colors = PackedColorArray(0.643137, 0.188235, 1, 1, 0.643137, 0.188235, 1, 1)
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_ipmqn"]
-gradient = SubResource("Gradient_chxqw")
-width = 1
+[ext_resource type="Texture2D" uid="uid://c5nm6oirf2gsf" path="res://Assets/Portal/Portal_100x100px.png" id="2_kx2ni"]
 
 [sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_w40bf"]
 properties/0/path = NodePath(".:position")
 properties/0/spawn = true
 properties/0/sync = true
 properties/0/watch = false
+
+[sub_resource type="Animation" id="Animation_k5yi1"]
+resource_name = "base"
+length = 3.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0, 40]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qhm15"]
+_data = {
+"base": SubResource("Animation_k5yi1")
+}
 
 [node name="Spawner" type="Node2D"]
 script = ExtResource("1_6oa2b")
@@ -22,8 +38,17 @@ script = ExtResource("1_6oa2b")
 autostart = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(100, 100)
-texture = SubResource("GradientTexture1D_ipmqn")
+scale = Vector2(2, 2)
+texture = ExtResource("2_kx2ni")
+hframes = 7
+vframes = 7
+frame = 15
 
 [node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
 replication_config = SubResource("SceneReplicationConfig_w40bf")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "base"
+libraries = {
+"": SubResource("AnimationLibrary_qhm15")
+}
