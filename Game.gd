@@ -9,6 +9,7 @@ var next_wave: Dictionary = {}
 
 signal spawn_wave(next_wave: Dictionary)
 
+
 var displayed_map_index:
 	get:
 		for i in $MapsContainer.get_child_count():
@@ -42,7 +43,10 @@ func _input(event):
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	GameState.start.connect(_on_start_game)
+	PlayerState.corrupted_changed.connect(_on_corrupted_changed)
 
+func _on_corrupted_changed(value: int):
+	$AudioStreamPlayer.pitch_scale = 1 - ((float(value) / 100) * 0.4)
 
 func _on_start_game():
 	self.remove_pages()

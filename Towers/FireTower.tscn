@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://cnkovvaqbfwqo"]
+[gd_scene load_steps=9 format=3 uid="uid://cnkovvaqbfwqo"]
 
 [ext_resource type="PackedScene" uid="uid://cwrl1q31ff0xu" path="res://Entities/Tower.tscn" id="1_46fn7"]
 [ext_resource type="Script" path="res://Towers/FireTower.gd" id="2_6sajg"]
 [ext_resource type="Texture2D" uid="uid://ca8mg1u6hs2xe" path="res://Assets/Foozle_2DS0020_Spire_TowerPack_4/Towers bases/PNGs/Tower 07.png" id="2_evkxl"]
 [ext_resource type="Texture2D" uid="uid://hho4lpxw5bd1" path="res://Assets/Foozle_2DS0020_Spire_TowerPack_4/Towers Weapons/Tower 07/Spritesheets/Tower 07 - Level 01 - Weapon.png" id="3_msywa"]
 [ext_resource type="PackedScene" uid="uid://c0a0owxfdimyk" path="res://Towers/FireAnim.tscn" id="3_ssr0r"]
+[ext_resource type="AudioStream" uid="uid://vsh8r0vk1h6i" path="res://Assets/sounds/223611__ctcollab__fire-ball-release.wav" id="6_uxoyw"]
 
 [sub_resource type="Animation" id="Animation_hraty"]
 resource_name = "Attack"
@@ -50,3 +51,7 @@ hframes = 6
 libraries = {
 "": SubResource("AnimationLibrary_6bfyl")
 }
+
+[node name="AudioStreamPlayer" parent="." index="6"]
+stream = ExtResource("6_uxoyw")
+volume_db = -10.0

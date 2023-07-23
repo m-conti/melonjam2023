@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://ueqhw5qpv2f4"]
+[gd_scene load_steps=5 format=3 uid="uid://ueqhw5qpv2f4"]
 
 [ext_resource type="Script" path="res://Game.gd" id="1_ne5w7"]
 [ext_resource type="PackedScene" uid="uid://ce1bx3y7sg12" path="res://menu/lobby.tscn" id="2_ob0hp"]
 [ext_resource type="PackedScene" uid="uid://l7ft4434eda7" path="res://HUD/HUDPlayer.tscn" id="3_ngnij"]
+[ext_resource type="AudioStream" uid="uid://clme82jv3xmwp" path="res://Assets/sounds/solstice-tobias-voigt-main-version-19298-02-34.mp3" id="4_8d0nw"]
 
 [node name="game" type="Node2D"]
 script = ExtResource("1_ne5w7")
@@ -32,3 +33,8 @@ wait_time = 4.0
 [node name="PageSpawner" type="MultiplayerSpawner" parent="."]
 _spawnable_scenes = PackedStringArray("res://menu/EndOfGame.tscn")
 spawn_path = NodePath("../SyncPages")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_8d0nw")
+volume_db = -30.0
+autoplay = true
