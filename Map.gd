@@ -43,6 +43,13 @@ func is_in_grid(pos: Vector2i) -> bool:
 func add_at_pos_by_ressource(path: String, pos: Vector2i):
 	add_at_pos(load(path), pos)
 
+@rpc("any_peer", "call_local")
+func destoy_at_pos(pos: Vector2i):
+	var object = grid[pos.x][pos.y]
+	if not object is Tower: return
+	object.queue_free()
+	grid[pos.x][pos.y] = null
+
 func add_at_pos(instance: PackedScene, pos: Vector2i):
 	print("PROCESS ADD " + str(get_multiplayer_authority()))
 	if not (is_in_grid(pos) and grid[pos.x][pos.y] == null):

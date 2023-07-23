@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://l7ft4434eda7"]
+[gd_scene load_steps=19 format=3 uid="uid://l7ft4434eda7"]
 
 [ext_resource type="Script" path="res://HUD/HUDPlayer.gd" id="1_udhey"]
 [ext_resource type="Script" path="res://HUD/Buttons/MenuBar.gd" id="2_fb018"]
@@ -11,6 +11,7 @@
 [ext_resource type="Script" path="res://HUD/Buttons/SpawnerButton.gd" id="9_jqeo6"]
 [ext_resource type="PackedScene" uid="uid://cij1o64untoon" path="res://Entities/Spawner.tscn" id="10_xjqej"]
 [ext_resource type="Script" path="res://HUD/Buttons/ArmoredButton.gd" id="11_nt6n7"]
+[ext_resource type="Script" path="res://HUD/Buttons/DestroyButton.gd" id="12_msho1"]
 
 [sub_resource type="Gradient" id="Gradient_0lmct"]
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
@@ -137,6 +138,11 @@ layout_mode = 2
 size_flags_vertical = 3
 text = "Armored"
 script = ExtResource("11_nt6n7")
+
+[node name="DestroyButton" type="Button" parent="Shop/BoxContainer/Boost/BoxContainer"]
+layout_mode = 2
+text = "Destroy Tower"
+script = ExtResource("12_msho1")
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="."]
 offset_right = 494.0
