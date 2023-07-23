@@ -98,3 +98,6 @@ func can_be_placed(pos: Vector2i) -> bool:
 func place_on_map(pos: Vector2i):
 	has_been_placed.emit(pos)
 	timer.start(attack_cooldown)
+
+func get_info() -> String:
+	return str(attacking_type)
