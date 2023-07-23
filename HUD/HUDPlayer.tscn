@@ -145,6 +145,27 @@ texture_under = SubResource("GradientTexture1D_rvkeo")
 texture_over = SubResource("GradientTexture1D_keirh")
 texture_progress = SubResource("GradientTexture1D_aocsf")
 
+[node name="TopRightContainer" type="MarginContainer" parent="."]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 50.0
+grow_horizontal = 0
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 24
+
+[node name="PlayerData" type="VBoxContainer" parent="TopRightContainer"]
+layout_mode = 2
+
+[node name="Gold" type="Label" parent="TopRightContainer/PlayerData"]
+layout_mode = 2
+
+[node name="Corruption" type="Label" parent="TopRightContainer/PlayerData"]
+layout_mode = 2
+
 [connection signal="toggled" from="Shop" to="Shop" method="_on_toggled"]
 [connection signal="toggled" from="Shop/BoxContainer/Towers" to="Shop/BoxContainer/Towers" method="_on_toggled"]
 [connection signal="toggled" from="Shop/BoxContainer/Boost" to="Shop/BoxContainer/Boost" method="_on_toggled"]

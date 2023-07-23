@@ -5,6 +5,9 @@ class_name Enemy
 @export var speed: int = 10 # px / s
 @export var hp: int = 10
 
+@export var corruption: int = 0
+@export var gold: int = 0
+
 @export var fly: bool = false
 
 @onready var map: Map = get_parent().get_parent()
@@ -20,7 +23,8 @@ signal damage(amount)
 
 func _enter_tree():
 	set_multiplayer_authority(get_parent().get_multiplayer_authority())
-
+	add_to_group("enemies")
+	add_to_group("enemies_of_" + str(NetworkState.get_player_number_by_map(get_parent().get_parent())))
 
 func init(player_number: int, current_case: Vector2i):
 	$HitBox.set_collision_layer_value(player_number, true)

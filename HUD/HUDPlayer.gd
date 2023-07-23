@@ -5,6 +5,8 @@ extends CanvasLayer
 func _ready():
 	GameState.map_changed.connect(_on_map_change)
 	GameState.start.connect(_on_start_game)
+	PlayerState.corruption_changed.connect(_on_corruption_changed)
+	PlayerState.gold_changed.connect(_on_gold_changed)
 	self.hide()
 
 
@@ -20,3 +22,9 @@ func _on_map_change(map: Map):
 		$Shop/BoxContainer/Towers.show()
 	else:
 		$Shop/BoxContainer/Towers.hide()
+
+func _on_gold_changed(value:int):
+	$TopRightContainer/PlayerData/Gold.text = "Gold : " + str(value)
+
+func _on_corruption_changed(value:int):
+	$TopRightContainer/PlayerData/Corruption.text = "Corruption : " + str(value)
