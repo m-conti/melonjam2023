@@ -21,6 +21,13 @@ GameState="*res://global/GameState.gd"
 NetworkState="*res://global/NetworkState.gd"
 PlayerState="*res://global/PlayerState.gd"
 
+[display]
+
+window/size/viewport_width=2500
+window/size/viewport_height=1400
+window/stretch/mode="canvas_items"
+window/stretch/aspect="expand"
+
 [input]
 
 game_next_map={
