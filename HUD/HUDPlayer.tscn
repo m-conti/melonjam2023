@@ -138,7 +138,7 @@ editor_description = "Corrupt the board of the chosen opponent in order to destr
 layout_mode = 2
 text = "Corrupt Map"
 script = ExtResource("9_vvmi7")
-cost = 1000
+cost = 1
 unit_cost = "corruption"
 
 [node name="Spawner" type="Button" parent="Shop/BoxContainer/Boost/BoxContainer"]
