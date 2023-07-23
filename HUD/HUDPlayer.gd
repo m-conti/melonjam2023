@@ -43,10 +43,12 @@ func _on_map_change(map: Map):
 		$Shop/BoxContainer/Towers.hide()
 
 func _on_gold_changed(value: int):
-	$TopRightContainer/Container/PlayerData/Gold.text = "Gold : " + str(value)
+	$TopRightContainer/Container/PanelContainer/MarginContainer/PlayerData/Gold.text = "Gold : " + str(value)
+	pass
 
 func _on_corruption_changed(value: int):
-	$TopRightContainer/Container/PlayerData/Corruption.text = "Corruption : " + str(value)
+	$TopRightContainer/Container/PanelContainer/MarginContainer/PlayerData/Corruption.text = "Corruption : " + str(value)
+	pass
 
 func _on_player_die():
 	self.hide()
