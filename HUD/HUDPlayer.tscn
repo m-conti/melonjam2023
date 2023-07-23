@@ -85,6 +85,7 @@ size_flags_vertical = 3
 text = "Fire Tower"
 script = ExtResource("4_vaerj")
 instance = ExtResource("5_3oa8o")
+cost = 300
 
 [node name="Ice Tower" type="Button" parent="Shop/BoxContainer/Towers/BoxContainer"]
 editor_description = "Slow down enemy halving their speed during 2 seconds"
@@ -94,6 +95,7 @@ size_flags_vertical = 3
 text = "Ice Tower"
 script = ExtResource("4_vaerj")
 instance = ExtResource("6_blmo6")
+cost = 250
 
 [node name="Bomb Tower" type="Button" parent="Shop/BoxContainer/Towers/BoxContainer"]
 editor_description = "Damage ground enemy in zone dealing them 2 damage every second"
@@ -103,6 +105,7 @@ size_flags_vertical = 3
 text = "Bomb Tower"
 script = ExtResource("4_vaerj")
 instance = ExtResource("7_r5s8x")
+cost = 500
 
 [node name="Archer Tower" type="Button" parent="Shop/BoxContainer/Towers/BoxContainer"]
 editor_description = "Deal 2 damage every 0.2 second"
@@ -119,8 +122,7 @@ custom_minimum_size = Vector2(2.08165e-12, 100)
 layout_mode = 2
 toggle_mode = true
 button_group = ExtResource("3_mfx6p")
-text = "Boost
-"
+text = "[23 l:§|/ [9z"
 script = ExtResource("2_fb018")
 
 [node name="BoxContainer" type="HBoxContainer" parent="Shop/BoxContainer/Boost"]
@@ -136,7 +138,8 @@ editor_description = "Corrupt the board of the chosen opponent in order to destr
 layout_mode = 2
 text = "Corrupt Map"
 script = ExtResource("9_vvmi7")
-cost = 1
+cost = 1000
+unit_cost = "corruption"
 
 [node name="Spawner" type="Button" parent="Shop/BoxContainer/Boost/BoxContainer"]
 editor_description = "Place it under the enemy ground to split the waves"
@@ -146,6 +149,8 @@ size_flags_vertical = 3
 text = "Spawner"
 script = ExtResource("9_jqeo6")
 instance = ExtResource("10_xjqej")
+cost = 1000
+unit_cost = "corruption"
 
 [node name="Armored" type="Button" parent="Shop/BoxContainer/Boost/BoxContainer"]
 editor_description = "Reinforce the enemies monsters and slow them down"
@@ -154,12 +159,17 @@ layout_mode = 2
 size_flags_vertical = 3
 text = "Armored"
 script = ExtResource("11_nt6n7")
+speed_mod = 0.8
+cost = 200
+unit_cost = "corruption"
 
 [node name="DestroyButton" type="Button" parent="Shop/BoxContainer/Boost/BoxContainer"]
 editor_description = "Destroy an enemy tower"
 layout_mode = 2
 text = "Destroy Tower"
 script = ExtResource("12_msho1")
+cost = 400
+unit_cost = "corruption"
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="."]
 offset_right = 494.0

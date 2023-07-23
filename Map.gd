@@ -85,6 +85,7 @@ func _ready():
 	_init_grid()
 	set_visibility(is_multiplayer_authority())
 	PlayerState.player_die.connect(_on_player_die)
+	GameState.end.connect(_on_game_end)
 	if not is_multiplayer_authority(): return
 	add_at_pos(load("res://Entities/Spawner.tscn"), Vector2i(3, 3))
 
@@ -133,6 +134,10 @@ func set_visibility(value: bool):
 	else:
 		hide()
 		$HUD.hide()
+
+func _on_game_end():
+	if is_instance_valid($SyncContainer):
+		$SyncContainer.queue_free()
 
 func _on_player_die(id: int):
 	if get_multiplayer_authority() == id:
