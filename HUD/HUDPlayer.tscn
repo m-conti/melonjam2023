@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://l7ft4434eda7"]
+[gd_scene load_steps=21 format=3 uid="uid://l7ft4434eda7"]
 
 [ext_resource type="Script" path="res://HUD/HUDPlayer.gd" id="1_udhey"]
 [ext_resource type="PackedScene" uid="uid://vgfy36l2aix8" path="res://HUD/MonsterInfo.tscn" id="2_7aewg"]

@@ -39,20 +39,13 @@ func _ready():
 	var player_index = NetworkState.get_player_index_by_id(self.get_multiplayer_authority())
 	$Sprite2D.material = ShaderMaterial.new()
 	$Sprite2D.material.shader = shaders[player_index]
-#	print("New Enemy", self)
-#	print("base values:")
-#	print("armor:",  armor)
-#	print("speed:", speed)
-#	print("hp:", hp)
-#	print("Modified values:")
-#	print("armor:",  armor)
-#	print("speed:", speed)
-#	print("hp:", hp)
-	pass
+	$ProgressBar.max_value = hp
+	$ProgressBar.value = hp
 
 
 func _on_damage(amount):
 	hp -= amount
+	$ProgressBar.value = hp
 	if hp <= 0:
 		$AnimationPlayer.play("Die" + get_direction())
 		$AnimationPlayer.animation_finished.connect(kill)
@@ -85,8 +78,6 @@ func get_next_case() -> Vector2i:
 			continue
 		if next_value < 0 or (next_value >= 0 and map.grid[new_target.x][new_target.y] == next_value):
 			return new_target
-	
-	print(next_value)
 	
 	return prev_case
 

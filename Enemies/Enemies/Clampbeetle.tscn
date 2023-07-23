@@ -1,7 +1,7 @@
 [gd_scene load_steps=12 format=3 uid="uid://bnkxdp2ge8uqa"]
 
 [ext_resource type="PackedScene" uid="uid://bv2qtaqo8tdpm" path="res://Enemies/Enemy.tscn" id="1_ejelc"]
-[ext_resource type="Texture2D" uid="uid://cpnxduw0jrcni" path="res://Assets/Foozle_2DC0027_Spire_EnemyPack_1_Flying/Flying/Spritesheets/Clampbeetle.png" id="2_l0ysw"]
+[ext_resource type="Texture2D" uid="uid://cpnxduw0jrcni" path="res://Enemies/Enemies/Clampbeetle.png" id="2_l0ysw"]
 
 [sub_resource type="Animation" id="Animation_tonhx"]
 resource_name = "DieDown"
