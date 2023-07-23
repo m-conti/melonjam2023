@@ -30,5 +30,5 @@ wait_time = 4.0
 [node name="SyncPages" type="CanvasLayer" parent="."]
 
 [node name="PageSpawner" type="MultiplayerSpawner" parent="."]
-_spawnable_scenes = PackedStringArray("<null>")
+_spawnable_scenes = PackedStringArray("res://menu/EndOfGame.tscn")
 spawn_path = NodePath("../SyncPages")
