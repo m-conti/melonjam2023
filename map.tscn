@@ -145,7 +145,7 @@ layer_1/tile_data = PackedInt32Array(458752, 851968, 13, 2, 917504, 12, 327682, 
 replication_config = SubResource("SceneReplicationConfig_dbbrf")
 
 [node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="."]
-_spawnable_scenes = PackedStringArray("res://Entities/Spawner.tscn", "res://Towers/ArcherTower.tscn", "res://Towers/BombTower.tscn", "res://Towers/FireTower.tscn", "res://Towers/IceTower.tscn")
+_spawnable_scenes = PackedStringArray("res://Entities/Spawner.tscn", "res://Towers/ArcherTower.tscn", "res://Towers/BombTower.tscn", "res://Towers/FireTower.tscn", "res://Towers/IceTower.tscn", "res://Enemies/Enemies/Clampbeetle.tscn", "res://Enemies/Enemies/Firebug.tscn", "res://Enemies/Enemies/Firewasp.tscn", "res://Enemies/Enemies/Flying Locust.tscn", "res://Enemies/Enemies/Leafbug.tscn", "res://Enemies/Enemies/Magma Crab.tscn", "res://Enemies/Enemies/Scorpion.tscn", "res://Enemies/Enemies/Voidbutterfly.tscn")
 spawn_path = NodePath("../SyncContainer")
 
 [node name="SyncContainer" type="Node2D" parent="."]
