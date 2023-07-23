@@ -1,6 +1,7 @@
-[gd_scene load_steps=19 format=3 uid="uid://l7ft4434eda7"]
+[gd_scene load_steps=20 format=3 uid="uid://l7ft4434eda7"]
 
 [ext_resource type="Script" path="res://HUD/HUDPlayer.gd" id="1_udhey"]
+[ext_resource type="PackedScene" uid="uid://vgfy36l2aix8" path="res://HUD/MonsterInfo.tscn" id="2_7aewg"]
 [ext_resource type="Script" path="res://HUD/Buttons/MenuBar.gd" id="2_fb018"]
 [ext_resource type="ButtonGroup" uid="uid://pevhaqpsd8fq" path="res://HUD/Buttons/SubShop.tres" id="3_mfx6p"]
 [ext_resource type="Script" path="res://HUD/Buttons/TowerButton.gd" id="4_vaerj"]
@@ -34,6 +35,7 @@ gradient = SubResource("Gradient_kfhv5")
 
 [node name="HUDPlayer" type="CanvasLayer"]
 script = ExtResource("1_udhey")
+mob_info = ExtResource("2_7aewg")
 
 [node name="Shop" type="Button" parent="."]
 anchors_preset = 3
@@ -170,6 +172,9 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="Corruption" type="Label" parent="TopRightContainer/PlayerData"]
+layout_mode = 2
+
+[node name="NextWave" type="VBoxContainer" parent="TopRightContainer"]
 layout_mode = 2
 
 [connection signal="toggled" from="Shop" to="Shop" method="_on_toggled"]

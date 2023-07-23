@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cpnxduw0jrcni"
-path="res://.godot/imported/Clampbeetle.png-6f517cb57d31315a787483c5a24f39c7.ctex"
+uid="uid://72fsuaxcv57v"
+path="res://.godot/imported/Leafbug.png-c120ef3d545344a32a2abb2054d9bc3e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Foozle_2DC0027_Spire_EnemyPack_1_Flying/Flying/Spritesheets/Clampbeetle.png"
-dest_files=["res://.godot/imported/Clampbeetle.png-6f517cb57d31315a787483c5a24f39c7.ctex"]
+source_file="res://Enemies/Enemies/Leafbug.png"
+dest_files=["res://.godot/imported/Leafbug.png-c120ef3d545344a32a2abb2054d9bc3e.ctex"]
 
 [params]
 

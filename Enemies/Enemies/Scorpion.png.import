@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dh3iynjdmnt34"
-path="res://.godot/imported/Magma Crab.png-8d849bebe3f72e390edc93c097e0d768.ctex"
+uid="uid://ch0yltuw0wcyn"
+path="res://.godot/imported/Scorpion.png-d3fa9569e7fbcf444169cf59e9aa31a1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Foozle_2DC0028_Spire_EnemyPack_2_Ground/Ground/Spritesheets/Magma Crab.png"
-dest_files=["res://.godot/imported/Magma Crab.png-8d849bebe3f72e390edc93c097e0d768.ctex"]
+source_file="res://Enemies/Enemies/Scorpion.png"
+dest_files=["res://.godot/imported/Scorpion.png-d3fa9569e7fbcf444169cf59e9aa31a1.ctex"]
 
 [params]
 

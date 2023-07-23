@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ch0yltuw0wcyn"
-path="res://.godot/imported/Scorpion.png-35f24a41010590b2a5454c7f94717828.ctex"
+uid="uid://cpnxduw0jrcni"
+path="res://.godot/imported/Clampbeetle.png-1cb8c9cfee9abe4d40908a43955fdb91.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Foozle_2DC0028_Spire_EnemyPack_2_Ground/Ground/Spritesheets/Scorpion.png"
-dest_files=["res://.godot/imported/Scorpion.png-35f24a41010590b2a5454c7f94717828.ctex"]
+source_file="res://Enemies/Enemies/Clampbeetle.png"
+dest_files=["res://.godot/imported/Clampbeetle.png-1cb8c9cfee9abe4d40908a43955fdb91.ctex"]
 
 [params]
 
