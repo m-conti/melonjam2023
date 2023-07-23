@@ -138,7 +138,8 @@ editor_description = "Corrupt the board of the chosen opponent in order to destr
 layout_mode = 2
 text = "Corrupt Map"
 script = ExtResource("9_vvmi7")
-cost = 300
+value = 4
+cost = 1200
 unit_cost = "corruption"
 
 [node name="Spawner" type="Button" parent="Shop/BoxContainer/Boost/BoxContainer"]
@@ -149,7 +150,7 @@ size_flags_vertical = 3
 text = "Spawner"
 script = ExtResource("9_jqeo6")
 instance = ExtResource("10_xjqej")
-cost = 800
+cost = 1600
 unit_cost = "corruption"
 
 [node name="Armored" type="Button" parent="Shop/BoxContainer/Boost/BoxContainer"]
@@ -160,7 +161,7 @@ size_flags_vertical = 3
 text = "Armored"
 script = ExtResource("11_nt6n7")
 speed_mod = 0.8
-cost = 200
+cost = 600
 unit_cost = "corruption"
 
 [node name="DestroyButton" type="Button" parent="Shop/BoxContainer/Boost/BoxContainer"]
@@ -168,7 +169,7 @@ editor_description = "Destroy an enemy tower"
 layout_mode = 2
 text = "Destroy Tower"
 script = ExtResource("12_msho1")
-cost = 400
+cost = 1200
 unit_cost = "corruption"
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="."]
