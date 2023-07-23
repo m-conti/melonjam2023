@@ -30,7 +30,6 @@ _data = {
 script = ExtResource("2_iq0s0")
 damage = 7
 attack_cooldown = 0.4
-price = null
 damage_animation = ExtResource("3_8v1a2")
 
 [node name="BaseSprite" parent="." index="0"]

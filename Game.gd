@@ -3,6 +3,8 @@ class_name Game
 
 var Map = load("res://map.tscn")
 
+var mobs_to_spawn: Dictionary
+
 var displayed_map_index:
 	get:
 		for i in $MapsContainer.get_child_count():
@@ -43,6 +45,28 @@ func _on_start_game():
 	self.start_game()
 	$CorruptionGain.timeout.connect(_gain_corruption)
 	$CorruptionGain.start()
+	if multiplayer.is_server():
+		$WaveTimer.start()
+		$WaveTimer.timeout.connect(func(): self.emit_spawn.rpc(server_create_wave()))
+
+
+func server_create_wave() -> Dictionary:
+	var mobs: Array = []
+	for mob in ["Clampbeetle", "Firebug", "Firewasp", "Flying Locust", "Leafbug", "Magma Crab", "Scorpion", "Voidbutterfly"]:
+		mobs.append("res://Enemies/Enemies/" + mob + ".tscn")
+	
+	var mobs_in_wave = {}
+	for i in range(5):
+		var mob = mobs.pick_random()
+		mobs_in_wave[mob] = mobs_in_wave.get(mob, 0) + 1
+	
+	return mobs_in_wave
+
+
+@rpc("authority", "call_local")
+func emit_spawn(wave: Dictionary):
+	for enemy in wave:
+		mobs_to_spawn[enemy] = mobs_to_spawn.get(enemy, 0) + wave[enemy]
 
 func start_game():
 	if multiplayer.is_server(): set_maps()
