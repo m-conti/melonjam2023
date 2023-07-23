@@ -12,6 +12,7 @@ var status: EGameStatus = EGameStatus.WAITING
 
 signal start
 signal stop
+signal end
 signal map_changed(Map)
 
 var game: Game:
@@ -43,8 +44,10 @@ func check_end():
 		end_game()
 
 func end_game():
+	if not multiplayer.is_server(): return
 	print("END GAME")
-	pass
+	game.get_node("SyncPages").add_child(load("res://menu/EndOfGame.tscn").instantiate())
+
 
 func disconnect_game():
 	if is_game_strated():
