@@ -4,9 +4,13 @@ var player_number: int = 1
 
 var gold: int = 500
 var corruption: int = 0
+var corrupted: int = 0
+
+const MAX_CORRUPTED = 100
 
 signal corruption_changed(int)
 signal gold_changed(int)
+signal corrupted_changed(int)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -29,6 +33,16 @@ func add_gold(value: int):
 	if gold < 0:
 		gold = 0
 	gold_changed.emit(gold)
+
+@rpc("any_peer", "call_local")
+func add_corrupted(value: int):
+	corrupted += value
+	if corrupted >= MAX_CORRUPTED:
+		kill()
+	corrupted_changed.emit(corrupted)
+
+func kill():
+	pass
 
 func has_enought_gold(value: int): return value <= gold
 func has_enought_corruption(value: int): return value <= corruption
