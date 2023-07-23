@@ -44,7 +44,7 @@ func _ready():
 
 
 func _on_damage(amount):
-	hp -= amount
+	hp -= amount * (100 - clamp(armor, 0, 100)) / 100
 	$ProgressBar.value = hp
 	if hp <= 0:
 		$AnimationPlayer.play("Die" + get_direction())
