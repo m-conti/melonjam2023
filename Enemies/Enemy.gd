@@ -55,8 +55,13 @@ func _on_damage(amount):
 	hp -= amount
 	if hp <= 0:
 		$AnimationPlayer.play("Die" + get_direction())
-		$AnimationPlayer.animation_finished.connect(func(x): queue_free())
+		$AnimationPlayer.animation_finished.connect(kill)
 
+
+func kill(x):
+	if is_in_group("enemies_of_1"):
+		PlayerState.add_gold(gold)
+	queue_free()
 
 func get_next_case() -> Vector2i:
 	var neighbours = [Vector2i.RIGHT, Vector2i.DOWN, Vector2i.LEFT, Vector2i.UP]

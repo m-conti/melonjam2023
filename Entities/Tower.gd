@@ -6,7 +6,6 @@ var enemies_inside: Array = []
 @onready var timer: Timer = $Timer
 @export var attacking_type: EAttackingType
 @onready var map: Map = get_parent().map
-@export var price: int = 100
 
 @export var damage_animation: PackedScene
 

@@ -6,7 +6,7 @@ class_name PlaceOnMap
 var ghost: Node2D = null
 
 
-func _on_pressed():
+func __on_pressed():
 	ghost = instance.instantiate()
 	ghost.modulate = Color(Color.WHITE, 0.5)
 
@@ -41,6 +41,7 @@ func _input(event):
 			ghost = null
 			print("ADD TO BOARD " + str(map.get_multiplayer_authority()))
 			map.add_at_pos_by_ressource.rpc_id(map.get_multiplayer_authority(), instance.resource_path, pos)
+			buy()
 		
 		elif event.button_index == MOUSE_BUTTON_RIGHT:
 			ghost.queue_free()

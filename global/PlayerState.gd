@@ -29,3 +29,9 @@ func add_gold(value: int):
 	if gold < 0:
 		gold = 0
 	gold_changed.emit(gold)
+
+func has_enought_gold(value: int): return value <= gold
+func has_enought_corruption(value: int): return value <= corruption
+
+func remove_gold(value: int): add_gold(-value)
+func remove_corruption(value: int): add_corruption(-value)
