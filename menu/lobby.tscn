@@ -70,14 +70,6 @@ text = "If you want non-LAN clients to connect,
 make sure the port 10567 in UDP
 is forwarded on your router."
 
-[node name="FindPublicIP" type="LinkButton" parent="Players"]
-layout_mode = 0
-offset_left = 168.0
-offset_top = 393.5
-offset_right = 341.0
-offset_bottom = 407.5
-text = "Find your public IP address"
-
 [node name="Connect" type="Panel" parent="."]
 layout_mode = 1
 anchors_preset = 8
@@ -279,6 +271,5 @@ vertical_alignment = 1
 autowrap_mode = 3
 
 [connection signal="pressed" from="Players/Start" to="." method="_on_start_pressed"]
-[connection signal="pressed" from="Players/FindPublicIP" to="." method="_on_find_public_ip_pressed"]
 [connection signal="pressed" from="Connect/Host" to="." method="_on_host_pressed"]
 [connection signal="pressed" from="Connect/Join" to="." method="_on_join_pressed"]

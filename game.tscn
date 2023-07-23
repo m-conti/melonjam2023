@@ -26,7 +26,7 @@ size_flags_vertical = 3
 wait_time = 5.0
 
 [node name="WaveTimer" type="Timer" parent="."]
-wait_time = 4.0
+wait_time = 16.0
 
 [node name="SyncPages" type="CanvasLayer" parent="."]
 
