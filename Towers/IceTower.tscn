@@ -29,7 +29,7 @@ _data = {
 
 [node name="tower" instance=ExtResource("1_v1doj")]
 script = ExtResource("2_hd4r2")
-speed_factor = 0.5
+speed_factor = 0.8
 duration = 2.0
 attacking_type = 5
 damage_animation = ExtResource("3_atffn")

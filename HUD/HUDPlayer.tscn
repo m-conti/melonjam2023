@@ -78,7 +78,7 @@ offset_right = -10.0
 grow_horizontal = 0
 
 [node name="Fire Tower" type="Button" parent="Shop/BoxContainer/Towers/BoxContainer"]
-editor_description = "Burn enemy dealing them 1 damage every 0.2 second during 2 seconds"
+editor_description = "Burn all enemies  in range"
 custom_minimum_size = Vector2(100, 2.08165e-12)
 layout_mode = 2
 size_flags_vertical = 3
