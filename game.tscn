@@ -26,3 +26,9 @@ wait_time = 5.0
 
 [node name="WaveTimer" type="Timer" parent="."]
 wait_time = 4.0
+
+[node name="SyncPages" type="CanvasLayer" parent="."]
+
+[node name="PageSpawner" type="MultiplayerSpawner" parent="."]
+_spawnable_scenes = PackedStringArray("<null>")
+spawn_path = NodePath("../SyncPages")

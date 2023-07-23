@@ -7,6 +7,10 @@ properties/0/path = NodePath("CorruptedBackground:modulate")
 properties/0/spawn = true
 properties/0/sync = true
 properties/0/watch = false
+properties/1/path = NodePath("CorruptedBackground:color")
+properties/1/spawn = true
+properties/1/sync = true
+properties/1/watch = false
 
 [node name="HUD" type="CanvasLayer"]
 script = ExtResource("1_y4ll3")
