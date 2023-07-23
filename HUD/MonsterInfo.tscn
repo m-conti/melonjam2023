@@ -1,0 +1,28 @@
+[gd_scene load_steps=3 format=3 uid="uid://vgfy36l2aix8"]
+
+[ext_resource type="Texture2D" uid="uid://cxod4pvcfemvo" path="res://Enemies/Enemies/Firebug.png" id="1_r68yc"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_odhra"]
+atlas = ExtResource("1_r68yc")
+region = Rect2(2.08165e-12, 2.08165e-12, 128, 64)
+
+[node name="PanelContainer" type="PanelContainer"]
+offset_right = 91.0
+offset_bottom = 64.0
+
+[node name="MonsterInfo" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MonsterInfo"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+
+[node name="Label" type="Label" parent="MonsterInfo/MarginContainer"]
+layout_mode = 2
+text = "8 x"
+
+[node name="TextureRect" type="TextureRect" parent="MonsterInfo"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture = SubResource("AtlasTexture_odhra")
+expand_mode = 1

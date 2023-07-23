@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c2rvbhhfh0ve6"
-path="res://.godot/imported/Voidbutterfly.png-91e3ecaa299c9a9b5c1506abe7cf97e7.ctex"
+path="res://.godot/imported/Voidbutterfly.png-d5a3fc8965e1add570dcd124327985ca.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Foozle_2DC0027_Spire_EnemyPack_1_Flying/Flying/Spritesheets/Voidbutterfly.png"
-dest_files=["res://.godot/imported/Voidbutterfly.png-91e3ecaa299c9a9b5c1506abe7cf97e7.ctex"]
+source_file="res://Enemies/Enemies/Voidbutterfly.png"
+dest_files=["res://.godot/imported/Voidbutterfly.png-d5a3fc8965e1add570dcd124327985ca.ctex"]
 
 [params]
 

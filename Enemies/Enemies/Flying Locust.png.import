@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cxod4pvcfemvo"
-path="res://.godot/imported/Firebug.png-9319db1d1f253847009a0108c2c0fb18.ctex"
+uid="uid://c2igs8304fje8"
+path="res://.godot/imported/Flying Locust.png-284636e36b78ab68c0968b98a9f18926.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Foozle_2DC0028_Spire_EnemyPack_2_Ground/Ground/Spritesheets/Firebug.png"
-dest_files=["res://.godot/imported/Firebug.png-9319db1d1f253847009a0108c2c0fb18.ctex"]
+source_file="res://Enemies/Enemies/Flying Locust.png"
+dest_files=["res://.godot/imported/Flying Locust.png-284636e36b78ab68c0968b98a9f18926.ctex"]
 
 [params]
 

@@ -3,7 +3,11 @@ class_name Game
 
 var Map = load("res://map.tscn")
 
-var mobs_to_spawn: Dictionary
+var mobs_to_spawn: Dictionary = {}
+var wave_step: int = 0
+var next_wave: Dictionary = {}
+
+signal spawn_wave(next_wave: Dictionary)
 
 var displayed_map_index:
 	get:
@@ -48,19 +52,25 @@ func _on_start_game():
 	if multiplayer.is_server():
 		$WaveTimer.start()
 		$WaveTimer.timeout.connect(func(): self.emit_spawn.rpc(server_create_wave()))
+		self.emit_spawn.rpc(server_create_wave())
 
 
 func server_create_wave() -> Dictionary:
+	var this_next_wave: Dictionary = next_wave
+	next_wave = {}
+	
 	var mobs: Array = []
 	for mob in ["Clampbeetle", "Firebug", "Firewasp", "Flying Locust", "Leafbug", "Magma Crab", "Scorpion", "Voidbutterfly"]:
 		mobs.append("res://Enemies/Enemies/" + mob + ".tscn")
 	
-	var mobs_in_wave = {}
-	for i in range(5):
+	for i in range(int(1.2 * wave_step) + int(wave_step / 5)*10 + 5):
 		var mob = mobs.pick_random()
-		mobs_in_wave[mob] = mobs_in_wave.get(mob, 0) + 1
+		next_wave[mob] = next_wave.get(mob, 0) + 1
 	
-	return mobs_in_wave
+	wave_step += 1
+	
+	spawn_wave.emit(next_wave)
+	return this_next_wave
 
 
 @rpc("authority", "call_local")

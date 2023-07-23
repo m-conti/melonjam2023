@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://72fsuaxcv57v"
-path="res://.godot/imported/Leafbug.png-b282e8d3aebb142646ad33ec86099c3f.ctex"
+uid="uid://ovc5vnt4mc1a"
+path="res://.godot/imported/Firewasp.png-a665aa9e902d4fa2b5fae83bf0e65293.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Foozle_2DC0028_Spire_EnemyPack_2_Ground/Ground/Spritesheets/Leafbug.png"
-dest_files=["res://.godot/imported/Leafbug.png-b282e8d3aebb142646ad33ec86099c3f.ctex"]
+source_file="res://Enemies/Enemies/Firewasp.png"
+dest_files=["res://.godot/imported/Firewasp.png-a665aa9e902d4fa2b5fae83bf0e65293.ctex"]
 
 [params]
 

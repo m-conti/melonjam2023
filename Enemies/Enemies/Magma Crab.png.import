@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ovc5vnt4mc1a"
-path="res://.godot/imported/Firewasp.png-3c02b0d26db233b48791d34f47fb527a.ctex"
+uid="uid://dh3iynjdmnt34"
+path="res://.godot/imported/Magma Crab.png-1f0a1cb07587fbbd8a9c5cfb2eabefd5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Foozle_2DC0027_Spire_EnemyPack_1_Flying/Flying/Spritesheets/Firewasp.png"
-dest_files=["res://.godot/imported/Firewasp.png-3c02b0d26db233b48791d34f47fb527a.ctex"]
+source_file="res://Enemies/Enemies/Magma Crab.png"
+dest_files=["res://.godot/imported/Magma Crab.png-1f0a1cb07587fbbd8a9c5cfb2eabefd5.ctex"]
 
 [params]
 
